@@ -1,30 +1,19 @@
 import { IconType } from 'react-icons'
 import {
-  SiDotNet,
   SiJavascript,
   SiTypescript,
-  SiNodeDotJs,
+  SiNodedotjs,
   SiGraphql,
   SiApollographql,
-  SiPhp,
   SiReact,
-  SiNextDotJs,
+  SiNextdotjs,
   SiRedux,
-  SiStyledComponents,
-  SiGhost,
-  SiVueDotJs,
+  SiStyledcomponents,
+  SiFirebase,
   SiDocker,
-  SiGooglecloud,
-  SiCpanel,
-  SiRancher,
-  SiGitlab,
   SiPostgresql,
-  SiMicrosoftsqlserver,
-  SiMysql,
   SiMongodb,
   SiRedis,
-  SiSocketDotIo,
-  SiMaterialUi,
   SiFramer,
   SiGit,
   SiGnubash,
@@ -32,11 +21,13 @@ import {
   SiUnity,
   SiMicrosoft,
   SiElectron,
+  SiFlutter,
+  SiVim,
+  SiChakraui,
+  SiBootstrap,
+  SiMaterialui,
 } from 'react-icons/si'
-import { BsQuestionSquare } from 'react-icons/bs'
-import { AiOutlineAntDesign } from 'react-icons/ai'
-import { FaSourcetree } from 'react-icons/fa'
-import { IoLogoPwa } from 'react-icons/io5'
+import { MdLineStyle } from 'react-icons/md'
 
 export type SkillCategory =
   | 'backend'
@@ -57,14 +48,28 @@ export type Skill = {
 export const Skills: {
   [key in SkillCategory]: Skill[]
 } = {
-  backend: [
+  frontend: [
     {
-      name: 'C# - .NET.Core',
-      icon: SiDotNet,
+      name: 'React',
+      icon: SiReact,
     },
     {
+      name: 'NextJS',
+      icon: SiNextdotjs,
+    },
+    {
+      name: 'Redux',
+      icon: SiRedux,
+    },
+    {
+      name: 'Apollo Graphql',
+      icon: SiApollographql,
+    },
+  ],
+  backend: [
+    {
       name: 'Node',
-      icon: SiNodeDotJs,
+      icon: SiNodedotjs,
     },
     {
       name: 'Javascript (ES6+)',
@@ -75,38 +80,8 @@ export const Skills: {
       icon: SiTypescript,
     },
     {
-      name: 'Graphql (JS, C#)',
+      name: 'Graphql',
       icon: SiGraphql,
-    },
-    {
-      name: 'PHP (Wordpress, Slim)',
-      icon: SiPhp,
-    },
-  ],
-  frontend: [
-    {
-      name: 'React, RecoilJS',
-      icon: SiReact,
-    },
-    {
-      name: 'NextJS',
-      icon: SiNextDotJs,
-    },
-    {
-      name: 'Apollo Graphql',
-      icon: SiApollographql,
-    },
-    {
-      name: 'Redux',
-      icon: SiRedux,
-    },
-    {
-      name: 'VueJS',
-      icon: SiVueDotJs,
-    },
-    {
-      name: 'Ghost',
-      icon: SiGhost,
     },
   ],
   database: [
@@ -115,12 +90,8 @@ export const Skills: {
       icon: SiPostgresql,
     },
     {
-      name: 'MsSQL',
-      icon: SiMicrosoftsqlserver,
-    },
-    {
-      name: 'MySQL',
-      icon: SiMysql,
+      name: 'Firebase',
+      icon: SiFirebase,
     },
     {
       name: 'MongoDb',
@@ -130,53 +101,21 @@ export const Skills: {
       name: 'Redis',
       icon: SiRedis,
     },
-    {
-      name: 'SocketIO',
-      icon: SiSocketDotIo,
-    },
-    {
-      name: 'Google Pubsub',
-      icon: SiGooglecloud,
-    },
   ],
   cicd: [
     {
       name: 'Docker',
       icon: SiDocker,
     },
-    {
-      name: 'GCP',
-      icon: SiGooglecloud,
-    },
-    {
-      name: 'CPanel',
-      icon: SiCpanel,
-    },
-    {
-      name: 'Rancher',
-      icon: SiRancher,
-    },
-    {
-      name: 'GitlabCICD',
-      icon: SiGitlab,
-    },
-    {
-      name: 'Buildkite',
-      icon: BsQuestionSquare,
-    },
   ],
   'ui frameworks': [
     {
       name: 'Styled Components',
-      icon: SiStyledComponents,
+      icon: SiStyledcomponents,
     },
     {
-      name: 'AntDesign',
-      icon: AiOutlineAntDesign,
-    },
-    {
-      name: 'MaterialUI',
-      icon: SiMaterialUi,
+      name: 'Bootstrap',
+      icon: SiBootstrap,
     },
     {
       name: 'Framer Motion',
@@ -184,25 +123,33 @@ export const Skills: {
     },
     {
       name: 'ChakraUI',
-      icon: BsQuestionSquare,
+      icon: SiChakraui,
+    },
+    {
+      name: 'NativeBase',
+      icon: MdLineStyle,
+    },
+    {
+      name: 'MaterialUI',
+      icon: SiMaterialui,
     },
   ],
   'productivity boost': [
-    {
-      name: 'VSCode',
-      icon: SiVisualstudiocode,
-    },
     {
       name: 'Git',
       icon: SiGit,
     },
     {
-      name: 'Bash',
-      icon: SiGnubash,
+      name: 'Vim',
+      icon: SiVim,
     },
     {
-      name: 'SourceTree',
-      icon: FaSourcetree,
+      name: 'VSCode',
+      icon: SiVisualstudiocode,
+    },
+    {
+      name: 'Bash',
+      icon: SiGnubash,
     },
   ],
   mobile: [
@@ -211,8 +158,8 @@ export const Skills: {
       icon: SiReact,
     },
     {
-      name: 'Web PWA',
-      icon: IoLogoPwa,
+      name: 'Flutter',
+      icon: SiFlutter,
     },
   ],
   games: [
