@@ -13,14 +13,12 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import {
-  SiDotnet,
   SiJavascript,
   SiTypescript,
   SiGraphql,
   SiReact,
   SiNextdotjs,
   SiNodedotjs,
-  SiDocker,
   SiFirebase,
   SiPostgresql,
 } from 'react-icons/si'
