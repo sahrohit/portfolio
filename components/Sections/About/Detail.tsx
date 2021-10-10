@@ -17,8 +17,8 @@ import {
   SiTypescript,
   SiGraphql,
   SiReact,
-  SiNextdotjs,
-  SiNodedotjs,
+  SiNextDotJs,
+  SiNodeDotJs,
   SiFirebase,
   SiPostgresql,
 } from 'react-icons/si'
@@ -81,7 +81,7 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
       <SimpleGrid columns={2} spacing={4}>
         <List spacing={3}>
           <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiNextdotjs} color={emphasis} fontSize="2em" />
+            <ListIcon as={SiNextDotJs} color={emphasis} fontSize="2em" />
             NextJS
           </ListItem>
           <ListItem fontSize="small" display="flex" alignItems="center">
@@ -93,7 +93,7 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
             React
           </ListItem>
           <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiNodedotjs} color={emphasis} fontSize="2em" />
+            <ListIcon as={SiNodeDotJs} color={emphasis} fontSize="2em" />
             Node
           </ListItem>
         </List>
