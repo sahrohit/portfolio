@@ -73,14 +73,17 @@ const GetInTouch = () => {
         </Tooltip>
         . So, whoever designed Earth C-137, really did a great job of designing.
         Respecting that, I really enjoy travelling and discovering natural
-        beauties. If you wanna have a coffee with me sometime feel free to
-        message me on any of my social media or shoot me an
+        beauties.
+        <br />
+        <br />
+        If you wanna have a coffee with me sometime feel free to message me on
+        any of my social media or shoot me an
         <Link
           href="mailto:sahrohit9586@gmail.com"
           target="_blank"
           rel="noreferrer"
         >
-          email
+          &nbsp;email
         </Link>{' '}
         or tag a pigeon with your message and send it my way.
       </Text>
