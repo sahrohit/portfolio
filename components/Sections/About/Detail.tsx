@@ -21,6 +21,8 @@ import {
   SiNodedotjs,
   SiFirebase,
   SiPostgresql,
+  SiTensorflow,
+  SiScikitlearn,
 } from 'react-icons/si'
 import { GiCoffeePot } from 'react-icons/gi'
 import { IoMdOpen } from 'react-icons/io'
@@ -96,6 +98,10 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
             <ListIcon as={SiNodedotjs} color={emphasis} fontSize="2em" />
             Node
           </ListItem>
+          <ListItem fontSize="small" display="flex" alignItems="center">
+            <ListIcon as={SiTensorflow} color={emphasis} fontSize="2em" />
+            Tensorflow
+          </ListItem>
         </List>
         <List spacing={3}>
           <ListItem fontSize="small" display="flex" alignItems="center">
@@ -113,6 +119,10 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
           <ListItem fontSize="small" display="flex" alignItems="center">
             <ListIcon as={SiFirebase} color={emphasis} fontSize="2em" />
             Firebase
+          </ListItem>
+          <ListItem fontSize="small" display="flex" alignItems="center">
+            <ListIcon as={SiScikitlearn} color={emphasis} fontSize="2em" />
+            Scikit-Learn
           </ListItem>
         </List>
         <Box>

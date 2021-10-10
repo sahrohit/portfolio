@@ -147,7 +147,7 @@ export const Experiences: {
     },
     roles: [
       <>Made E-Commerce website based on Nextjs.</>,
-      <>Connecting APIs Endpoints for web applications.</>,
+      <>Connected APIs Endpoints for web applications.</>,
       <>Styled the Web Application using CSS Preprocessor.</>,
     ],
   },

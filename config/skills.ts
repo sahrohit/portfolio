@@ -19,15 +19,17 @@ import {
   SiGnubash,
   SiVisualstudiocode,
   SiUnity,
-  SiMicrosoft,
-  SiElectron,
   SiFlutter,
   SiVim,
   SiChakraui,
   SiBootstrap,
   SiMaterialui,
+  SiTensorflow,
+  SiScikitlearn,
+  SiKeras,
 } from 'react-icons/si'
 import { MdLineStyle } from 'react-icons/md'
+import { GiKiwiBird } from 'react-icons/gi'
 
 export type SkillCategory =
   | 'backend'
@@ -38,7 +40,7 @@ export type SkillCategory =
   | 'productivity boost'
   | 'mobile'
   | 'games'
-  | 'desktop'
+  | 'data'
 
 export type Skill = {
   name: string
@@ -82,6 +84,24 @@ export const Skills: {
     {
       name: 'Graphql',
       icon: SiGraphql,
+    },
+  ],
+  data: [
+    {
+      name: 'Tensorflow',
+      icon: SiTensorflow,
+    },
+    {
+      name: 'Scikit-Learn',
+      icon: SiScikitlearn,
+    },
+    {
+      name: 'Keras',
+      icon: SiKeras,
+    },
+    {
+      name: 'Weka',
+      icon: GiKiwiBird,
     },
   ],
   database: [
@@ -166,16 +186,6 @@ export const Skills: {
     {
       name: 'Unity3D',
       icon: SiUnity,
-    },
-  ],
-  desktop: [
-    {
-      name: 'Windows Forms, WPF',
-      icon: SiMicrosoft,
-    },
-    {
-      name: 'Electron',
-      icon: SiElectron,
     },
   ],
 }
