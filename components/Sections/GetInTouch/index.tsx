@@ -71,19 +71,19 @@ const GetInTouch = () => {
             <b> blue pill</b>
           </Text>
         </Tooltip>
-        . So, whoever designed Earth C-137, really did a great job of designing.
-        Respecting that, I really enjoy travelling and discovering natural
+        . So, whoever designed Earth C-137, really did a great job of designing
+        it. Respecting that, I really enjoy travelling and discovering natural
         beauties.
         <br />
         <br />
-        If you wanna have a coffee with me sometime feel free to message me on
-        any of my social media or shoot me an
+        If you wanna have coffee with me sometime feel free to message me on any
+        of my social media or shoot me an&nbsp;
         <Link
           href="mailto:sahrohit9586@gmail.com"
           target="_blank"
           rel="noreferrer"
         >
-          &nbsp;email
+          email
         </Link>{' '}
         or tag a pigeon with your message and send it my way.
       </Text>
