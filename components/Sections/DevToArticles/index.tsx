@@ -29,12 +29,13 @@ const DevToArticles = ({ articles }: { articles: Article[] }) => {
           fontVariantCaps: 'small-caps',
         }}
       >
-        Dev.to blog
+        Blogs
       </Heading>
       <Text variant="description">
-        I write dev related things from time to time!
+        The emptiness here, serves as a source of inspiration for me to write
+        blogs!
       </Text>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, md: 10 }}>
+      {/* <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, md: 10 }}>
         {articles.map((item) => (
           <Link
             aria-label={item.title}
@@ -82,7 +83,7 @@ const DevToArticles = ({ articles }: { articles: Article[] }) => {
             </Stack>
           </Link>
         ))}
-      </SimpleGrid>
+      </SimpleGrid> */}
     </Stack>
   )
 }

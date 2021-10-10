@@ -1,5 +1,13 @@
 import { memo } from 'react'
-import { Heading, Text, Stack, Link, Icon, Box } from '@chakra-ui/react'
+import {
+  Heading,
+  Text,
+  Stack,
+  Link,
+  Icon,
+  Tooltip,
+  Box,
+} from '@chakra-ui/react'
 import { motion, Variants } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
@@ -52,18 +60,29 @@ const GetInTouch = () => {
         </Text>
       </Heading>
       <Text variant="description">
-        Though, I am fairly introverted myself. I do reply to messages as long
-        as my human interaction battery lasts. Coding, work, movies or even weeb
-        stuff, anything is cool. So feel free to message me on any of my social
-        media or shoot me an{' '}
+        Well, I vaguely recall myself taking the{' '}
+        <Tooltip
+          label="Red Pill or Blue Pill?"
+          aria-label="Matrix Reference"
+          placement="top"
+          hasArrow
+        >
+          <Text as="span" variant="emphasis">
+            <b> blue pill</b>
+          </Text>
+        </Tooltip>
+        . So, whoever designed Earth C-137, really did a great job of designing.
+        Respecting that, I really enjoy travelling and discovering natural
+        beauties. If you wanna have a coffee with me sometime feel free to
+        message me on any of my social media or shoot me an
         <Link
           href="mailto:sahrohit9586@gmail.com"
           target="_blank"
           rel="noreferrer"
         >
           email
-        </Link>
-        .
+        </Link>{' '}
+        or tag a pigeon with your message and send it my way.
       </Text>
 
       <Box

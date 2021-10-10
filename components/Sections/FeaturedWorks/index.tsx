@@ -44,18 +44,17 @@ const FeaturedWorksSection = () => {
         <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
           <FeaturedCard
             idx={1}
-            title="Tobira!"
-            src="/works/tobira/IphoneX-tobira.jpg"
-            description="Japanese social media platform for travelers to show off their
-          adventure to the world. I was incharge of Front end integration, made using React, Antd and Styled Components."
+            title="Madre"
+            src="/works/madre.png"
+            description="Platform for ordering food from a restraunt chain."
             height={{ base: '130px', md: '225px', '2xl': '300px' }}
-            ctaUrl="https://tobira-app-test.netlify.app/"
+            ctaUrl="https://oldmadre.vercel.app/"
             objectPosition="right 20%"
             isMobile={isMobile}
           />
         </MotionGridItem>
 
-        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
+        {/* <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
           <FeaturedCard
             idx={2}
             title="RSV"
@@ -90,7 +89,7 @@ const FeaturedWorksSection = () => {
             ctaUrl="https://www.layla-ec.com/"
             isMobile={isMobile}
           />
-        </MotionGridItem>
+        </MotionGridItem> */}
       </MotionGrid>
     </Stack>
   )
