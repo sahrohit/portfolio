@@ -27,7 +27,7 @@ export const SocialMedias: SocialMedia[] = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/sahrohite/',
+    href: 'https://www.linkedin.com/in/sahrohit/',
     icon: FaLinkedin,
   },
   {
