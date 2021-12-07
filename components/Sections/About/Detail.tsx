@@ -26,6 +26,7 @@ import {
 } from 'react-icons/si'
 import { GiCoffeePot } from 'react-icons/gi'
 import { IoMdOpen } from 'react-icons/io'
+import * as gtag from '../../../lib/gtag'
 
 type ISkillSetModal = {
   onOpen(): void
@@ -131,7 +132,15 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
             variant="emphasis"
             fontSize="smaller"
             textAlign="left"
-            onClick={onOpen}
+            onClick={() => {
+              onOpen()
+              gtag.event({
+                action: 'opened_skill_modal',
+                category: 'engagement',
+                label: 'Skills',
+                value: 1,
+              })
+            }}
           >
             See my full arsenal <Icon as={IoMdOpen} />
           </Text>

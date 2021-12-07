@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import { motion, useCycle } from 'framer-motion'
+import * as gtag from '../../lib/gtag'
 import styles from './styles.module.css'
 import MobileMenu from './toggle'
 import { ThemeMode, mobileBreakpointsMap } from 'config/theme'
@@ -214,7 +215,15 @@ const Navigation = () => {
               as="a"
               href="/Rohit's-Resume.pdf"
               rel="noreferrer"
-              onClick={onMenuItemClick}
+              onClick={(e) => {
+                onMenuItemClick(e)
+                gtag.event({
+                  action: 'downloaded_resume',
+                  category: 'Resume',
+                  label: 'Resume',
+                  value: 1,
+                })
+              }}
             >
               Resume
             </Button>
