@@ -3,7 +3,10 @@ const OpenGraphHead = () => (
   <Head>
     <title>Rohit Sah | Junior Web Developer</title>
     <meta name="title" content="Rohit Sah | Junior Web Developer" />
-    <meta name="description" content="The only portfolio I like." />
+    <meta
+      name="description"
+      content="I'm Rohit Sah, a computer engineering student who focuses on web design, data analysis and databases."
+    />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.sahrohit.com.np/" />

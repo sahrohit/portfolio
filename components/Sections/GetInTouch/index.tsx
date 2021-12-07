@@ -4,7 +4,7 @@ import {
   Text,
   Stack,
   Link,
-  Icon,
+  // Icon,
   Tooltip,
   Box,
 } from '@chakra-ui/react'

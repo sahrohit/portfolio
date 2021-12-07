@@ -18,7 +18,7 @@ import {
   letterSpace,
   simpleOpacity,
   stagger,
-  scaleUp,
+  // scaleUp,
   divider,
 } from 'config/animations'
 import { SocialMedias } from 'config/sidebar'

@@ -2,40 +2,39 @@ import { memo } from 'react'
 import {
   Heading,
   Text,
-  Link,
   Stack,
-  SimpleGrid,
-  Divider,
-  useColorModeValue,
+  // Link,
+  // SimpleGrid,
+  // Divider,
+  // useColorModeValue,
 } from '@chakra-ui/react'
-import { Article } from 'types/article'
+// import { Article } from 'types/article'
 
-const DevToArticles = ({ articles }: { articles: Article[] }) => {
-  const bg = useColorModeValue('blackAlpha.50', 'whiteAlpha.100')
-  const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.100')
-  const alphaHover = useColorModeValue(
-    'rgba(49, 151, 149, 0.06)',
-    'rgba(157, 236, 249, 0.06)'
-  )
-  return (
-    <Stack
-      width={{ base: '99%', lg: '60%', xl: '75%' }}
-      height="100%"
-      spacing={{ base: 6, xl: 8 }}
+const DevToArticles = () => (
+  // const bg = useColorModeValue('blackAlpha.50', 'whiteAlpha.100')
+  // const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.100')
+  // const alphaHover = useColorModeValue(
+  //   'rgba(49, 151, 149, 0.06)',
+  //   'rgba(157, 236, 249, 0.06)'
+  // )
+  <Stack
+    width={{ base: '99%', lg: '60%', xl: '75%' }}
+    height="100%"
+    spacing={{ base: 6, xl: 8 }}
+  >
+    <Heading
+      size="2xl"
+      style={{
+        fontVariantCaps: 'small-caps',
+      }}
     >
-      <Heading
-        size="2xl"
-        style={{
-          fontVariantCaps: 'small-caps',
-        }}
-      >
-        Blogs
-      </Heading>
-      <Text variant="description">
-        The emptiness here, serves as a source of inspiration for me to write
-        blogs!
-      </Text>
-      {/* <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, md: 10 }}>
+      Blogs
+    </Heading>
+    <Text variant="description">
+      The emptiness here, serves as a source of inspiration for me to write
+      blogs!
+    </Text>
+    {/* <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 5, md: 10 }}>
         {articles.map((item) => (
           <Link
             aria-label={item.title}
@@ -84,8 +83,7 @@ const DevToArticles = ({ articles }: { articles: Article[] }) => {
           </Link>
         ))}
       </SimpleGrid> */}
-    </Stack>
-  )
-}
+  </Stack>
+)
 
 export default memo(DevToArticles)
