@@ -33,8 +33,10 @@ const Logo = () => {
             className={!isMobile ? styles.logo : ''}
             boxSize={isMobile ? '30px' : '50px'}
             objectFit="cover"
-            src="./logo_light.png"
-            fallbackSrc="./logo_light.png"
+            // src="./logo_light.png"
+            // fallbackSrc="./logo_light.png"
+            src="./logo.png"
+            fallbackSrc="./logo.png"
             alt="Jellyfish Logo"
             variants={simpleOpacity}
             initial="initial"
