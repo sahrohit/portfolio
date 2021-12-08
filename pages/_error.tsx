@@ -3,7 +3,7 @@ import { Heading, Box, Flex, Text, Button } from '@chakra-ui/react'
 import { FaHome } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 
-const Custom404 = (): JSX.Element => {
+const Error = (): JSX.Element => {
   const router = useRouter()
 
   return (
@@ -13,10 +13,7 @@ const Custom404 = (): JSX.Element => {
           I have bad
           <br /> news for you.
         </Heading>
-        <Text my="8">
-          The page you are looking for might be
-          <br /> removed or is temporary unavailable.
-        </Text>
+        <Text my="8">An Error has occured. Please try again later.</Text>
         <Box>
           <Button
             onClick={() => {
@@ -387,4 +384,4 @@ const Custom404 = (): JSX.Element => {
   )
 }
 
-export default Custom404
+export default Error
