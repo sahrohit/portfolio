@@ -142,8 +142,8 @@ export const Experiences: {
     position: 'Frontend Engineering Intern',
     duration: 'Aug 2021 - Present',
     logo: {
-      light: '/worked_at_logos/supremeit.png',
-      dark: '/worked_at_logos/supremeit.png',
+      light: '/worked_at_logos/supremeit.webp',
+      dark: '/worked_at_logos/supremeit.webp',
     },
     roles: [
       <>Made E-Commerce website based on Nextjs.</>,

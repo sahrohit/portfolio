@@ -19,9 +19,9 @@ const Logo = () => {
             className={!isMobile ? styles.logo : ''}
             boxSize={isMobile ? '30px' : '50px'}
             objectFit="cover"
-            src="./logo.png"
+            src="./logo.webp"
             alt="Jellyfish Logo"
-            fallbackSrc="./logo.png"
+            fallbackSrc="./logo.webp"
             variants={simpleOpacity}
             initial="initial"
             animate={isLogoLoaded && 'animate'}
@@ -35,8 +35,8 @@ const Logo = () => {
             objectFit="cover"
             // src="./logo_light.png"
             // fallbackSrc="./logo_light.png"
-            src="./logo.png"
-            fallbackSrc="./logo.png"
+            src="./logo.webp"
+            fallbackSrc="./logo.webp"
             alt="Jellyfish Logo"
             variants={simpleOpacity}
             initial="initial"

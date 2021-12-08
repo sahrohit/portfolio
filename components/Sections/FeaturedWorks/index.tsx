@@ -45,7 +45,7 @@ const FeaturedWorksSection = () => {
           <FeaturedCard
             idx={1}
             title="Madre"
-            src="/works/madre.png"
+            src="/works/madre.webp"
             description="Platform for ordering food from a restraunt chain."
             height={{ base: '130px', md: '225px', '2xl': '300px' }}
             ctaUrl="https://oldmadre.vercel.app/"
