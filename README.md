@@ -1,66 +1,92 @@
-# KL Lawingco's Personal Site
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/github_username/repo_name">
+    <img src="./public/logo_light.png" alt="Logo" width="80" height="80">
+  </a>
 
-Hey there! KL here. This is a v2 of my portfolio site, a complete rewrite from v1 which is shamefully a template I edited a bit back on 2018. I wanted to try out what I can do on my own in regards to UI and UX design so I reckon why not start with my porfolio.
+<h3 align="center">Portfolio</h3>
 
-This is written in Typescript using [Next.js](https://nextjs.org/), as a SSG tool. It utilizes [ChakraUI](https://chakra-ui.com/) as well as  [Framer Motion](https://www.framer.com/motion/) for animations.
+  <p align="center">
+    Built with love & Next.js
+    <br />
+    <a href="https://www.sahrohit.com.np">https://www.sahrohit.com.np</a>
+ 
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/0-percent-optimized.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
+</div>
 
-This contains bits of my details. In future I am planning to get this to cater my own blog too but for now will use dev.to links. 
+## About The Project
 
-Site is Currently deployed at <b>Netlify</b>'s Free tier .
+[![Product Name Screen Shot](https://shot.screenshotapi.net/screenshot?token=SYFRG8T-XWFMK5V-PGRW10V-VTR9YYG&url=https%3A%2F%2Fsahrohit.com.np&width=1536&height=722&full_page=true&output=image&file_type=webp&lazy_load=true&dark_mode=false&wait_for_event=domcontentloaded&delay=5000&ttl=86400)](https://www.sahrohit.com.np)
 
-> Build Status 
+Portfolio designed by KL Lawingo which has become a place to show off my skills which I learnt over the years. It has a long way to go, but it's a good start.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4a91d5f6-a717-4b60-9f92-82c11745f2e8/deploy-status)](https://app.netlify.com/sites/kllawingco/deploys)
+### Built With
 
+- [Next.js](https://nextjs.org/)
+- [ChakraUI](https://chakra-ui.com/)
+- [Framer Motion](https://www.framer.com/motion/)
 
-## Demo
-
-<img src="./public/demo.gif" alt="DEMO" />
-
-
-## Local Development
-
-This is just a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-Please use atleast Node v12, but the recommended version is Node v14 LTS. There's a `.nvmrc`, you can run `nvm use` if you have nvm installed.
+<!-- GETTING STARTED -->
 
 ## Getting Started
 
-This project heavily favors <b>yarn</b> over npm. 
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
 
-So to set things up you need to run
+### Installation
 
-```bash
-yarn install
-```
-or just
-```bash
-yarn
-```
+1. Clone the repo
+   ```sh
+   git clone https://github.com/sahrohit/portfolio.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Rename the `env.example` to `env.local` & update you enviroment variables.
+   ```js
+   API_KEY = YOUR API KEYS
+   ```
 
-Then to run the development server:
+### After Setting Up
 
-```bash
-yarn dev
-```
+To initialize the frontend,
 
-and it should open at
+`npm run dev` - Starts a Next App at http://localhost:3000
 
-> http://localhost:3000/
+<!-- ROADMAP -->
+<!--
+## Roadmap
 
+-   [] Feature 1
+-   [] Feature 2
+-   [] Feature 3
+    -   [] Nested Feature
 
-## Deployment
+See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues). -->
 
-Nothing special, its setup at Netlify end (irrc: no `netlify.toml`), just merge a feat branch to master branch and you're good. 
+<!-- CONTRIBUTING -->
 
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- CONTACT -->
 
 ## Credits
 
-Logo and Avatar are made by my friend : <b>KojiroArt</b>.
-Please check him out at his [`twitter`](https://twitter.com/kojiro_ai) account.  
-
-And of course 
-Made with Love and :coffee:
-
-KL 
+Design by KL Lawingo

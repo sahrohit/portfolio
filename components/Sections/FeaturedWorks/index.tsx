@@ -45,28 +45,27 @@ const FeaturedWorksSection = () => {
           <FeaturedCard
             idx={1}
             title="Madre"
-            src="/works/madre.webp"
+            src="/madre-mockup.webp"
             description="Platform for ordering food from a restraunt chain."
             height={{ base: '130px', md: '225px', '2xl': '300px' }}
-            ctaUrl="https://oldmadre.vercel.app/"
+            ctaUrl="https://madre.vercel.app/"
             objectPosition="right 20%"
             isMobile={isMobile}
           />
         </MotionGridItem>
 
-        {/* <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
+        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
           <FeaturedCard
             idx={2}
-            title="RSV"
-            description="RSV is a smart contract (ERC20) powered reservation system. I am incharge of backend using NET.Core 2.1."
-            src="/works/rsv.png"
+            title="Chatbot"
+            description="A Chatbot made with PyTorch and Nextjs, which answers most of your questions but get a little finiky sometimes."
+            src="/chatbot-mockup.webp"
             height={{ base: '130px', md: '225px', '2xl': '300px' }}
-            ctaUrl="https://solution.rsv.ltd/jp"
+            ctaUrl="https://ml-chatbot.vercel.app"
             isMobile={isMobile}
           />
         </MotionGridItem>
-
-        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
+        {/*      <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
           <FeaturedCard
             idx={3}
             title="Agora School"
