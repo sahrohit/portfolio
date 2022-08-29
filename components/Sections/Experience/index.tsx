@@ -1,5 +1,5 @@
+import { Heading, Stack, Text } from '@chakra-ui/react'
 import { memo } from 'react'
-import { Heading, Text, Stack, Link } from '@chakra-ui/react'
 import ExperienceTab from './ExperienceTab'
 const DetailSection = () => (
   <Stack
@@ -15,17 +15,7 @@ const DetailSection = () => (
     >
       Places i’ve worked.
     </Heading>
-    <Text variant="description">
-      I am currently working as a Frontend Engineering Intern at{' '}
-      <Link
-        href="https://www.supremeitsolutions.com/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Supreme IT Solutions
-      </Link>
-      .
-    </Text>
+    <Text variant="description">I am enjoying my life at the moment.</Text>
 
     <ExperienceTab />
   </Stack>

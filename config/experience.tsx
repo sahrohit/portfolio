@@ -140,7 +140,7 @@ export const Experiences: {
     subDetail: '',
     url: 'https://www.supremeitsolutions.com/',
     position: 'Frontend Engineering Intern',
-    duration: 'Aug 2021 - Present',
+    duration: 'Aug 2021 - Oct 2021',
     logo: {
       light: '/worked_at_logos/supremeit.webp',
       dark: '/worked_at_logos/supremeit.webp',

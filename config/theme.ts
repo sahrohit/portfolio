@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   extendTheme,
   ColorMode,
@@ -70,7 +71,7 @@ const theme = extendTheme({
   styles,
   components: {
     Link: {
-      baseStyle: (props) => ({
+      baseStyle: (props: any) => ({
         color: mode('#3F72AF', '#30E3CA')(props),
       }),
       variants: {
@@ -92,10 +93,10 @@ const theme = extendTheme({
     },
     Button: {
       variants: {
-        outline: (props) => ({
+        outline: (props: any) => ({
           borderColor: mode('black.400', '#30E3CA')(props),
         }),
-        outlineAlternative: (props) => ({
+        outlineAlternative: (props: any) => ({
           borderWidth: '1px',
           borderRadius: 0,
           borderColor: mode('#595959', 'whiteAlpha.500')(props),
@@ -110,14 +111,14 @@ const theme = extendTheme({
     },
     Icon: {
       variants: {
-        accent: (props) => ({
+        accent: (props: any) => ({
           borderColor: mode('gray.800', 'gray.400')(props),
         }),
       },
     },
     Divider: {
       variants: {
-        solid: (props) => ({
+        solid: (props: any) => ({
           borderColor: mode('gray.800', 'gray.400')(props),
           marginLeft: 'auto',
           marginRight: 'auto',

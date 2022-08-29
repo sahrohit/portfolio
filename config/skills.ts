@@ -1,35 +1,40 @@
 import { IconType } from 'react-icons'
+import { GiKiwiBird } from 'react-icons/gi'
+import { MdLineStyle } from 'react-icons/md'
 import {
-  SiJavascript,
-  SiTypescript,
-  SiNodedotjs,
-  SiGraphql,
+  SiAmazonaws,
   SiApollographql,
-  SiReact,
-  SiNextdotjs,
-  SiRedux,
-  SiStyledcomponents,
-  SiFirebase,
+  SiBootstrap,
+  SiChakraui,
   SiDocker,
-  SiPostgresql,
-  SiMongodb,
-  SiRedis,
+  SiExpress,
+  SiFirebase,
   SiFramer,
   SiGit,
   SiGnubash,
-  SiVisualstudiocode,
-  SiUnity,
-  SiFlutter,
-  SiVim,
-  SiChakraui,
-  SiBootstrap,
-  SiMaterialui,
-  SiTensorflow,
-  SiScikitlearn,
+  SiGo,
+  SiGraphql,
+  SiJavascript,
   SiKeras,
+  SiMaterialui,
+  SiMongodb,
+  SiMysql,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPwa,
+  SiReact,
+  SiRedis,
+  SiRedux,
+  SiScikitlearn,
+  SiStyledcomponents,
+  SiTailwindcss,
+  SiTensorflow,
+  SiTypescript,
+  SiUnity,
+  SiVim,
+  SiVisualstudiocode,
 } from 'react-icons/si'
-import { MdLineStyle } from 'react-icons/md'
-import { GiKiwiBird } from 'react-icons/gi'
 
 export type SkillCategory =
   | 'backend'
@@ -74,16 +79,24 @@ export const Skills: {
       icon: SiNodedotjs,
     },
     {
+      name: 'Graphql',
+      icon: SiGraphql,
+    },
+    {
       name: 'Javascript (ES6+)',
       icon: SiJavascript,
     },
     {
-      name: 'Typescript',
-      icon: SiTypescript,
+      name: 'Go',
+      icon: SiGo,
     },
     {
-      name: 'Graphql',
-      icon: SiGraphql,
+      name: 'Express',
+      icon: SiExpress,
+    },
+    {
+      name: 'Typescript',
+      icon: SiTypescript,
     },
   ],
   data: [
@@ -92,12 +105,12 @@ export const Skills: {
       icon: SiTensorflow,
     },
     {
-      name: 'Scikit-Learn',
-      icon: SiScikitlearn,
-    },
-    {
       name: 'Keras',
       icon: SiKeras,
+    },
+    {
+      name: 'Scikit-Learn',
+      icon: SiScikitlearn,
     },
     {
       name: 'Weka',
@@ -121,14 +134,34 @@ export const Skills: {
       name: 'Redis',
       icon: SiRedis,
     },
+    {
+      name: 'MySQL',
+      icon: SiMysql,
+    },
+    {
+      name: 'Datagrip',
+      icon: MdLineStyle,
+    },
   ],
   cicd: [
     {
       name: 'Docker',
       icon: SiDocker,
     },
+    {
+      name: 'AWS',
+      icon: SiAmazonaws,
+    },
   ],
   'ui frameworks': [
+    {
+      name: 'Tailwind CSS',
+      icon: SiTailwindcss,
+    },
+    {
+      name: 'Mantine',
+      icon: MdLineStyle,
+    },
     {
       name: 'Styled Components',
       icon: SiStyledcomponents,
@@ -178,8 +211,8 @@ export const Skills: {
       icon: SiReact,
     },
     {
-      name: 'Flutter',
-      icon: SiFlutter,
+      name: 'PWA',
+      icon: SiPwa,
     },
   ],
   games: [

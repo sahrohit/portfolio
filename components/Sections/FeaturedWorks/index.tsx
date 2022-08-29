@@ -53,10 +53,32 @@ const FeaturedWorksSection = () => {
             isMobile={isMobile}
           />
         </MotionGridItem>
-
         <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
           <FeaturedCard
             idx={2}
+            title="Nepali Year Progress"
+            description="A automated twitter reminder on how far you are into 2079 BS."
+            src="/yearprogress-mockup.webp"
+            height={{ base: '130px', md: '225px', '2xl': '300px' }}
+            ctaUrl="https://nepali-year-progress.netlify.app/"
+            isMobile={isMobile}
+          />
+        </MotionGridItem>
+
+        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
+          <FeaturedCard
+            idx={3}
+            title="GoTrip"
+            description="A highly interactive travel companion app made with Manitine💖."
+            src="/gotrip-mockup.webp"
+            height={{ base: '130px', md: '225px', '2xl': '300px' }}
+            ctaUrl="https://gotrip.vercel.app"
+            isMobile={isMobile}
+          />
+        </MotionGridItem>
+        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
+          <FeaturedCard
+            idx={4}
             title="Chatbot"
             description="A Chatbot made with PyTorch and Nextjs, which answers most of your questions but get a little finiky sometimes."
             src="/chatbot-mockup.webp"
