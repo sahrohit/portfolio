@@ -5,11 +5,12 @@ import { useRouter } from 'next/router'
 import { ChakraProvider } from '@chakra-ui/react'
 import { AnimatePresence } from 'framer-motion'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/react'
 import theme from 'config/theme'
 import FavIconProvider from 'components/Misc/FavIconProvider'
 import * as gtag from 'lib/gtag'
 
-function KLSite({ Component, pageProps }: AppProps): JSX.Element {
+function App({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter()
   useEffect(() => {
     const handleRouteChange = (url: URL) => {
@@ -41,14 +42,15 @@ function KLSite({ Component, pageProps }: AppProps): JSX.Element {
         `,
         }}
       />
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         <ChakraProvider theme={theme}>
           <FavIconProvider>
             <Component {...pageProps} />
           </FavIconProvider>
+          <Analytics />
         </ChakraProvider>
       </AnimatePresence>
     </>
   )
 }
-export default KLSite
+export default App

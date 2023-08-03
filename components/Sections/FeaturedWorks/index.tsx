@@ -7,10 +7,27 @@ import {
   GridItem,
   useBreakpointValue,
 } from '@chakra-ui/react'
+import {
+  SiAstro,
+  SiRedis,
+  SiTailwindcss,
+  SiPostgresql,
+  SiChakraui,
+  SiGraphql,
+  SiApollographql,
+  SiUnity,
+  SiFlask,
+  SiFirebase,
+  SiPytorch,
+} from 'react-icons/si'
+import { TbBrandNextjs } from 'react-icons/tb'
+import { PiFlagPennantFill } from 'react-icons/pi'
 import { motion } from 'framer-motion'
+import { Link } from '@chakra-ui/next-js'
 import FeaturedCard from './FeaturedCard'
 import { fadeInUpSlower, galleryStagger } from 'config/animations'
 import { mobileBreakpointsMap } from 'config/theme'
+
 const MotionGrid = motion(Grid)
 const MotionGridItem = motion(GridItem)
 
@@ -31,8 +48,8 @@ const FeaturedWorksSection = () => {
         Some of my works.
       </Heading>
       <Text variant="description">
-        Check out some of the works I made at freelancing, company projects and
-        even case studies.
+        Explore a collection of my personal projects and case studies, created
+        during my free time out of pure interest and passion.
       </Text>
 
       <MotionGrid
@@ -44,6 +61,114 @@ const FeaturedWorksSection = () => {
         <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
           <FeaturedCard
             idx={1}
+            tags={[
+              {
+                label: 'Astro',
+                icon: SiAstro,
+              },
+              {
+                label: 'Tailwind CSS',
+                icon: SiTailwindcss,
+              },
+              {
+                label: 'CTFd',
+                icon: PiFlagPennantFill,
+              },
+            ]}
+            title="HEx Himalaya"
+            src="/works/hex-mock-with-background.png"
+            description="Websites for HEx Events, HEx Hackathon and HEx CTF organized by Himalaya College of Engineering."
+            height={{ base: '130px', md: '225px', '2xl': '300px' }}
+            ctaUrl="https://www.hexhimalaya.com/"
+            sourceUrl="https://github.com/sahrohit/hex2023"
+            objectPosition="right 20%"
+            isMobile={isMobile}
+          />
+        </MotionGridItem>
+        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
+          <FeaturedCard
+            idx={2}
+            tags={[
+              {
+                label: 'NextJs',
+                icon: TbBrandNextjs,
+              },
+              {
+                label: 'GraphQl',
+                icon: SiGraphql,
+              },
+              {
+                label: 'Chakra UI',
+                icon: SiChakraui,
+              },
+              {
+                label: 'Postgres',
+                icon: SiPostgresql,
+              },
+              {
+                label: 'Redis',
+                icon: SiRedis,
+              },
+              {
+                label: 'Apollo GraphQl',
+                icon: SiApollographql,
+              },
+            ]}
+            title="Hamro Pasal"
+            description="Ecommerce platform filled complete with every feature you can imagine."
+            src="/works/hamropasal-mock.png"
+            height={{ base: '130px', md: '225px', '2xl': '300px' }}
+            ctaUrl="https://hamropasal.vercel.app/"
+            sourceUrl="https://github.com/sahrohit/fullstack-ecommerce"
+            isMobile={isMobile}
+          />
+        </MotionGridItem>
+        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
+          <FeaturedCard
+            idx={3}
+            tags={[
+              {
+                label: 'Unity',
+                icon: SiUnity,
+              },
+            ]}
+            title="Crystal Chaos"
+            description="Game made with Unity where you Fight for your life to obtain the crystal that holds the forbidden power."
+            src="/works/crystal-chaos-mock.png"
+            height={{ base: '130px', md: '225px', '2xl': '300px' }}
+            sourceUrl="https://github.com/Team-NPCs/Crystal-Chaos"
+            isMobile={isMobile}
+          />
+        </MotionGridItem>
+        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
+          <FeaturedCard
+            idx={4}
+            tags={[
+              {
+                label: 'PyTorch',
+                icon: SiPytorch,
+              },
+              {
+                label: 'Flask',
+                icon: SiFlask,
+              },
+              {
+                label: 'Firebase',
+                icon: SiFirebase,
+              },
+            ]}
+            title="Chatbot"
+            description="A Chatbot made with PyTorch and Nextjs, which answers most of your questions but get a little finiky sometimes."
+            src="/works/chatbot-mockup.webp"
+            height={{ base: '130px', md: '225px', '2xl': '300px' }}
+            ctaUrl="https://ml-chatbot.vercel.app"
+            sourceUrl="https://github.com/sahrohit/ml-chatbot"
+            isMobile={isMobile}
+          />
+        </MotionGridItem>
+        {/* <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
+          <FeaturedCard
+            idx={2}
             title="Madre"
             src="/madre-mockup.webp"
             description="Platform for ordering food from a restraunt chain."
@@ -55,18 +180,6 @@ const FeaturedWorksSection = () => {
         </MotionGridItem>
         <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
           <FeaturedCard
-            idx={2}
-            title="Nepali Year Progress"
-            description="A automated twitter reminder on how far you are into 2079 BS."
-            src="/yearprogress-mockup.webp"
-            height={{ base: '130px', md: '225px', '2xl': '300px' }}
-            ctaUrl="https://nepali-year-progress.netlify.app/"
-            isMobile={isMobile}
-          />
-        </MotionGridItem>
-
-        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
-          <FeaturedCard
             idx={3}
             title="GoTrip"
             description="A highly interactive travel companion app made with Manitine💖."
@@ -75,43 +188,14 @@ const FeaturedWorksSection = () => {
             ctaUrl="https://gotrip.vercel.app"
             isMobile={isMobile}
           />
-        </MotionGridItem>
-        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
-          <FeaturedCard
-            idx={4}
-            title="Chatbot"
-            description="A Chatbot made with PyTorch and Nextjs, which answers most of your questions but get a little finiky sometimes."
-            src="/chatbot-mockup.webp"
-            height={{ base: '130px', md: '225px', '2xl': '300px' }}
-            ctaUrl="https://ml-chatbot.vercel.app"
-            isMobile={isMobile}
-          />
-        </MotionGridItem>
-        {/*      <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
-          <FeaturedCard
-            idx={3}
-            title="Agora School"
-            description="A quizz - reviewer LMS, I made as a freelancer. Backend were powered by PHPSlim and VueJS for Front end."
-            src="/works/agora.png"
-            height={{ base: '130px', md: '225px', '2xl': '300px' }}
-            ctaUrl="https://dev.agora-school.com"
-            objectPosition="right 20%"
-            isMobile={isMobile}
-          />
-        </MotionGridItem>
-
-        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
-          <FeaturedCard
-            idx={4}
-            title="TMH Layla EC"
-            description="A Japanese Semi-conductor e-commerce made at my old place at IVP. I was working with backend using ASP.NET MVC"
-            src="/works/tmh.png"
-            height={{ base: '130px', md: '225px', '2xl': '300px' }}
-            ctaUrl="https://www.layla-ec.com/"
-            isMobile={isMobile}
-          />
         </MotionGridItem> */}
       </MotionGrid>
+      <Text variant="description">
+        Discover a treasure trove of my innovative projects on{' '}
+        <Link href="https://github.com/sahrohit">(github/sahrohit)</Link>, where
+        my passion for pushing boundaries and creating cutting-edge solutions
+        comes to life.
+      </Text>
     </Stack>
   )
 }

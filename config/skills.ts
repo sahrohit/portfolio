@@ -6,6 +6,8 @@ import {
   SiApollographql,
   SiBootstrap,
   SiChakraui,
+  SiD3Dotjs,
+  SiDatagrip,
   SiDocker,
   SiExpress,
   SiFirebase,
@@ -16,10 +18,12 @@ import {
   SiGraphql,
   SiJavascript,
   SiKeras,
-  SiMaterialui,
+  SiMaterialdesign,
+  SiMicrosoftazure,
   SiMongodb,
   SiMysql,
   SiNextdotjs,
+  SiNginx,
   SiNodedotjs,
   SiPostgresql,
   SiPwa,
@@ -30,11 +34,13 @@ import {
   SiStyledcomponents,
   SiTailwindcss,
   SiTensorflow,
+  SiTrpc,
   SiTypescript,
   SiUnity,
   SiVim,
   SiVisualstudiocode,
 } from 'react-icons/si'
+import { TbBrandMantine } from 'react-icons/tb'
 
 export type SkillCategory =
   | 'backend'
@@ -61,7 +67,7 @@ export const Skills: {
       icon: SiReact,
     },
     {
-      name: 'NextJS',
+      name: 'NextJs',
       icon: SiNextdotjs,
     },
     {
@@ -83,20 +89,28 @@ export const Skills: {
       icon: SiGraphql,
     },
     {
+      name: 'Express',
+      icon: SiExpress,
+    },
+    {
       name: 'Javascript (ES6+)',
       icon: SiJavascript,
+    },
+    {
+      name: 'Typescript',
+      icon: SiTypescript,
+    },
+    {
+      name: 'TRPC',
+      icon: SiTrpc,
     },
     {
       name: 'Go',
       icon: SiGo,
     },
     {
-      name: 'Express',
-      icon: SiExpress,
-    },
-    {
-      name: 'Typescript',
-      icon: SiTypescript,
+      name: 'D3.Js',
+      icon: SiD3Dotjs,
     },
   ],
   data: [
@@ -140,7 +154,7 @@ export const Skills: {
     },
     {
       name: 'Datagrip',
-      icon: MdLineStyle,
+      icon: SiDatagrip,
     },
   ],
   cicd: [
@@ -152,6 +166,14 @@ export const Skills: {
       name: 'AWS',
       icon: SiAmazonaws,
     },
+    {
+      name: 'Azure',
+      icon: SiMicrosoftazure,
+    },
+    {
+      name: 'NGINX',
+      icon: SiNginx,
+    },
   ],
   'ui frameworks': [
     {
@@ -160,7 +182,7 @@ export const Skills: {
     },
     {
       name: 'Mantine',
-      icon: MdLineStyle,
+      icon: TbBrandMantine,
     },
     {
       name: 'Styled Components',
@@ -184,7 +206,7 @@ export const Skills: {
     },
     {
       name: 'MaterialUI',
-      icon: SiMaterialui,
+      icon: SiMaterialdesign,
     },
   ],
   'productivity boost': [

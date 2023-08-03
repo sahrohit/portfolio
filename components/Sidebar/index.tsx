@@ -10,6 +10,7 @@ import {
   Icon,
   Tooltip,
   useBreakpointValue,
+  Flex,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import styles from './styles.module.css'
@@ -31,6 +32,7 @@ const Sidebar = () => {
   const MotionStack = motion(Stack)
   const MotionButton = motion(Button)
   const MotionBox = motion(Box)
+  const MotionFlex = motion(Flex)
 
   return (
     <MotionBox
@@ -102,7 +104,7 @@ const Sidebar = () => {
             className={styles.marginTopSmall}
             variants={fadeInUp}
           >
-            Junior Web Developer
+            Computer Science Graduate
           </MotionHeading>
 
           <MotionText
@@ -118,7 +120,7 @@ const Sidebar = () => {
               portfolio.
             </Text>
             <br />
-            <br />I am a computer engineer that focuses on
+            <br />I am a computer engineer skilled in
             <Tooltip
               label="can center div in 10 different ways"
               aria-label="CSS Brag"
@@ -127,12 +129,12 @@ const Sidebar = () => {
             >
               <Text variant="emphasis" as="span">
                 {' '}
-                front end design
+                front end designs
               </Text>
             </Tooltip>
             <Text variant="emphasis" as="span">
               {' '}
-              , UI/UX design
+              , backend architecture
             </Text>
             <Tooltip
               label="can deal with numbers"
@@ -142,18 +144,18 @@ const Sidebar = () => {
             >
               <Text variant="emphasis" as="span">
                 {' '}
-                , and data science,
+                , and data science especially data visualization.
               </Text>
             </Tooltip>
-            &nbsp;but I have been expanding my knowledge to include
+            &nbsp;Committed to delivering innovative and seamless solution
             <Tooltip
-              label="unga bunga recursive query"
+              label="well, thats the purpose"
               aria-label="Backend Brag"
               placement="right-start"
               hasArrow
             >
               <Text variant="emphasis" as="span">
-                &nbsp;backend architecture.
+                &nbsp;to make lives easier.
               </Text>
             </Tooltip>
           </MotionText>
@@ -175,7 +177,7 @@ const Sidebar = () => {
             Get in touch!
           </MotionButton>
 
-          <MotionBox d="flex" variants={simpleOpacity}>
+          <MotionFlex variants={simpleOpacity}>
             {SocialMedias.map((socMedia) => (
               <Link
                 variant="description"
@@ -190,7 +192,7 @@ const Sidebar = () => {
                 <Icon w={6} h={6} as={socMedia.icon} color="currentColor" />
               </Link>
             ))}
-          </MotionBox>
+          </MotionFlex>
         </MotionStack>
       </Container>
     </MotionBox>

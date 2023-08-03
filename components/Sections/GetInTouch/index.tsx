@@ -1,13 +1,5 @@
 import { memo } from 'react'
-import {
-  Heading,
-  Text,
-  Stack,
-  Link,
-  // Icon,
-  Tooltip,
-  Box,
-} from '@chakra-ui/react'
+import { Heading, Text, Stack, Link, Tooltip, Box } from '@chakra-ui/react'
 import { motion, Variants } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
@@ -89,25 +81,15 @@ const GetInTouch = () => {
       </Text>
 
       <Box
-        spacing={0.5}
         textAlign="center"
         fontFamily="monospace"
         paddingTop={{ base: 10, lg: 20, xl: 20 }}
         paddingBottom={{ base: 5, lg: 18 }}
       >
-        <Link
-          variant="description"
-          textDecoration="none"
-          rel="noreferrer"
-          href="https://www.linkedin.com/in/marclawingco/"
-          target="_blank"
-          _focus={{ boxShadow: 'none' }}
-        >
-          <Text as="span">
-            {/* <Icon as={FaLinkedin} h={6} w={6} /> <br /> */}
-            Design by KL Lawingco.
-          </Text>
-        </Link>
+        <Text as="span">
+          {/* <Icon as={FaLinkedin} h={6} w={6} /> <br /> */}
+          Design by KL Lawingco.
+        </Text>
       </Box>
     </Stack>
   )

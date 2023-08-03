@@ -13,7 +13,6 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import {
-  SiJavascript,
   SiTypescript,
   SiGraphql,
   SiReact,
@@ -23,6 +22,7 @@ import {
   SiPostgresql,
   SiTensorflow,
   SiScikitlearn,
+  SiTrpc,
 } from 'react-icons/si'
 import { GiCoffeePot } from 'react-icons/gi'
 import { IoMdOpen } from 'react-icons/io'
@@ -54,12 +54,24 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
         What i do.
       </Heading>
       <Text variant="description">
-        I`ve been learning web design for several years and am presently
-        pursuing a degree as a <b>Computer Science Engineer</b> with an emphasis
-        on database architecture, and machine learning.
+        For several years, I have been immersed in learning web design and am
+        currently focused on optimizing web technologies for performance and
+        accessibility, aiming to make them accessible to all users.
+        <br /> Because,
+        <Tooltip
+          label="faster for user as well"
+          aria-label="Tech Debt?"
+          placement="top-start"
+          hasArrow
+        >
+          <Text as="span" variant="emphasis">
+            <b> optimization </b>
+          </Text>
+        </Tooltip>{' '}
+        saves resources.
         <br /> <br /> Defending users against
         <Tooltip
-          label="Well, that was my inspiration."
+          label="... and, that was my inspiration."
           aria-label="Tech Debt?"
           placement="top-start"
           hasArrow
@@ -88,8 +100,8 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
             NextJS
           </ListItem>
           <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiJavascript} color={emphasis} fontSize="2em" />
-            Javascript (ES6+)
+            <ListIcon as={SiTrpc} color={emphasis} fontSize="2em" />
+            TRPC
           </ListItem>
           <ListItem fontSize="small" display="flex" alignItems="center">
             <ListIcon as={SiReact} color={emphasis} fontSize="2em" />

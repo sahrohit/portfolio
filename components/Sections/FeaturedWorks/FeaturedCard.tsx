@@ -11,10 +11,20 @@ import {
   Container,
   Stack,
   useColorModeValue,
+  HStack,
+  Tag,
+  TagLabel,
+  TagRightIcon,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
+import { IconType } from 'react-icons'
 import styles from './styles.module.css'
 import { easing, DURATIONS } from 'config/animations'
+
+export type FeaturedCardTag = {
+  label: string
+  icon?: IconType
+}
 
 export type FeaturedCardProps = {
   // Still can't find what's correct value for responsive value
@@ -25,8 +35,10 @@ export type FeaturedCardProps = {
   title: string
   description: string
   objectPosition?: string
-  ctaUrl: string
+  ctaUrl?: string
+  sourceUrl?: string
   isMobile?: boolean
+  tags?: FeaturedCardTag[]
 }
 
 const variants = {
@@ -58,13 +70,17 @@ const ProjectDescription = ({
   title,
   description,
   ctaUrl,
+  sourceUrl,
   isLeft,
+  tags,
 }: {
   idx?: number
   title: string
   description: string
-  ctaUrl: string
+  ctaUrl?: string
+  sourceUrl?: string
   isLeft: boolean
+  tags?: FeaturedCardTag[]
 }) => (
   <Container
     paddingX={5}
@@ -90,6 +106,7 @@ const ProjectDescription = ({
         </Text>
         {title}
       </Text>
+
       <Divider
         borderColor="#A6A6A6"
         width="90%"
@@ -97,6 +114,14 @@ const ProjectDescription = ({
         alignSelf={isLeft ? 'flex-end' : 'flex-start'}
       />
     </Stack>
+    <HStack w="full" flexWrap="wrap">
+      {tags?.map((tag) => (
+        <Tag key={tag.label} size="sm" variant="outline">
+          <TagLabel>{tag.label}</TagLabel>
+          {tag.icon && <TagRightIcon as={tag.icon} />}
+        </Tag>
+      ))}
+    </HStack>
     <Text
       fontSize="smaller"
       variant="accentAlternative"
@@ -107,19 +132,38 @@ const ProjectDescription = ({
     >
       {description}
     </Text>
-    <Button
-      variant="outlineAlternative"
-      fontWeight="light"
-      fontSize={{ base: 'sm', '2xl': 'md' }}
-      size="sm"
-      as="a"
-      href={ctaUrl}
-      rel="noreferrer"
-      target="_blank"
-      marginY={{ base: 3, md: 0 }}
-    >
-      View Project
-    </Button>
+    <HStack>
+      {ctaUrl && (
+        <Button
+          variant="outlineAlternative"
+          fontWeight="light"
+          fontSize={{ base: 'sm', '2xl': 'md' }}
+          size="sm"
+          as="a"
+          href={ctaUrl}
+          rel="noreferrer"
+          target="_blank"
+          marginY={{ base: 3, md: 0 }}
+        >
+          View Project
+        </Button>
+      )}
+      {sourceUrl && (
+        <Button
+          variant="outlineAlternative"
+          fontWeight="light"
+          fontSize={{ base: 'sm', '2xl': 'md' }}
+          size="sm"
+          as="a"
+          href={sourceUrl}
+          rel="noreferrer"
+          target="_blank"
+          marginY={{ base: 3, md: 0 }}
+        >
+          View Source
+        </Button>
+      )}
+    </HStack>
   </Container>
 )
 
@@ -131,7 +175,9 @@ const FeaturedCard = ({
   description,
   objectPosition,
   ctaUrl,
+  sourceUrl,
   isMobile,
+  tags,
 }: FeaturedCardProps) => {
   const isLeftImage = isMobile ? false : idx % 2 === 0
   const bg = useColorModeValue('blackAlpha.50', 'whiteAlpha.200')
@@ -168,10 +214,12 @@ const FeaturedCard = ({
       >
         {isLeftImage && <CoverImage />}
         <ProjectDescription
+          tags={tags}
           idx={idx}
           title={title}
           description={description}
           ctaUrl={ctaUrl}
+          sourceUrl={sourceUrl}
           isLeft={isLeftImage}
         />
         {!isLeftImage && <CoverImage />}

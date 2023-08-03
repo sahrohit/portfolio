@@ -115,7 +115,7 @@
 
 // export const ExperiencesList = [Experiences.SCG, Experiences.Blotocol]
 
-export type Company = 'SIS'
+export type Company = 'SIS' | 'Aifiverse'
 
 export type CompanyDetail = {
   name: string
@@ -134,6 +134,32 @@ export type CompanyDetail = {
 export const Experiences: {
   [key in Company]: CompanyDetail
 } = {
+  Aifiverse: {
+    name: 'Aifiverse Tech Services',
+    longName: 'Aifiverse Tech Services',
+    subDetail: '',
+    url: 'https://aifiverse.com',
+    position: 'Frontend Engineer',
+    duration: 'Oct 2022 - Jan 2023',
+    logo: {
+      light: '/worked_at_logos/aifiverse.webp',
+      dark: '/worked_at_logos/aifiverse.webp',
+    },
+    roles: [
+      <>
+        Troubleshot and debugged complex issues within React applications,
+        maintaining a high level of application stability and reliability.
+      </>,
+      <>
+        Worked closely with UI/UX designers to translate mockups and wireframes
+        into functional React components, ensuring pixel-perfect implementation.
+      </>,
+      <>
+        Conducted regular meetings with team members to track progress, address
+        challenges, and ensure project alignment with organizational goals.
+      </>,
+    ],
+  },
   SIS: {
     name: 'Supreme IT Solutions',
     longName: 'Supreme IT Solutions',
@@ -146,11 +172,21 @@ export const Experiences: {
       dark: '/worked_at_logos/supremeit.webp',
     },
     roles: [
-      <>Made E-Commerce website based on Nextjs.</>,
-      <>Connected APIs Endpoints for web applications.</>,
-      <>Styled the Web Application using CSS Preprocessor.</>,
+      <>
+        Developed a dynamic E-Commerce website using Next.js, incorporating
+        modern React components for enhanced user experience and performance.
+      </>,
+      <>
+        Successfully integrated API endpoints into the web application, enabling
+        seamless data retrieval and updates for real-time product information.
+      </>,
+      <>
+        Leveraged CSS preprocessors (e.g., SASS, LESS) to efficiently style the
+        web application, resulting in a consistent and visually appealing user
+        interface.
+      </>,
     ],
   },
 }
 
-export const ExperiencesList = [Experiences.SIS]
+export const ExperiencesList = [Experiences.Aifiverse, Experiences.SIS]
