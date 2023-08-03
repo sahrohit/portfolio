@@ -1,23 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  Text,
   Link,
-  Stack,
-  Tabs,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel,
-  Image,
   List,
   ListIcon,
   ListItem,
   SlideFade,
-  Skeleton,
-  useColorModeValue,
+  Stack,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  Text,
   useBreakpointValue,
   useColorMode,
+  useColorModeValue,
 } from '@chakra-ui/react'
+import Image from 'next/image'
 import { BiRightArrow } from 'react-icons/bi'
 import { ExperiencesList } from 'config/experience'
 
@@ -66,12 +65,14 @@ const ExperienceTab = () => {
           >
             <Image
               src={
-                colorMode === 'dark' ? company.logo.dark : company.logo.light
+                colorMode === 'dark' && company.logo.dark
+                  ? company.logo.dark
+                  : company.logo.light
               }
               alt={company.longName}
-              maxWidth="88px"
-              fallback={<Skeleton height="100%" width="100%" />}
-            ></Image>
+              width={88}
+              height={25}
+            />
           </Tab>
         ))}
       </TabList>

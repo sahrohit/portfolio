@@ -9,7 +9,8 @@ import {
   useColorModeValue,
   useBreakpointValue,
 } from '@chakra-ui/react'
-import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { BsSun } from 'react-icons/bs'
+import { BiSolidMoon } from 'react-icons/bi'
 import { motion, useCycle } from 'framer-motion'
 import * as gtag from '../../lib/gtag'
 import styles from './styles.module.css'
@@ -37,7 +38,7 @@ const Navigation = () => {
 
   const IsDark = colorMode === ThemeMode.Dark
   const btnClassName = `${styles.blogBtn} ${!IsDark && styles.dark}`
-  const Icon = IsDark ? SunIcon : MoonIcon
+  const Icon = IsDark ? BsSun : BiSolidMoon
   const onMenuItemClick = useCallback(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (e: any) => {

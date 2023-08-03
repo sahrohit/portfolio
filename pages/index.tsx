@@ -11,14 +11,12 @@ import OpenGraphHead from 'components/Misc/OpenGraphHead'
 import FadeInLayout from 'components/Layout/FadeWhenVisible'
 import Menu from 'components/Menu'
 import Sidebar from 'components/Sidebar'
-// import Avatar from 'components/Avatar'
 import About from 'components/Sections/About'
-import Experience from 'components/Sections/Experience'
-import FeaturedWorks from 'components/Sections/FeaturedWorks'
 import ScrollMore from 'components/Misc/ScrollMore'
 
-// import { Article } from 'types/article'
 // These are on bottom sections so no need to render it instantly
+const Experience = dynamic(() => import('components/Sections/Experience'))
+const FeaturedWorks = dynamic(() => import('components/Sections/FeaturedWorks'))
 const DevToArticles = dynamic(() => import('components/Sections/DevToArticles'))
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
 

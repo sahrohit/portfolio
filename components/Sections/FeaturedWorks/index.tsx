@@ -23,7 +23,7 @@ import {
 import { TbBrandNextjs } from 'react-icons/tb'
 import { PiFlagPennantFill } from 'react-icons/pi'
 import { motion } from 'framer-motion'
-import { Link } from '@chakra-ui/next-js'
+import Link from 'next/link'
 import FeaturedCard from './FeaturedCard'
 import { fadeInUpSlower, galleryStagger } from 'config/animations'
 import { mobileBreakpointsMap } from 'config/theme'
@@ -192,9 +192,17 @@ const FeaturedWorksSection = () => {
       </MotionGrid>
       <Text variant="description">
         Discover a treasure trove of my innovative projects on{' '}
-        <Link href="https://github.com/sahrohit">(github/sahrohit)</Link>, where
-        my passion for pushing boundaries and creating cutting-edge solutions
-        comes to life.
+        <Text
+          as="span"
+          variant="emphasis"
+          _hover={{
+            textDecoration: 'underline',
+          }}
+        >
+          <Link href="https://github.com/sahrohit">(github/sahrohit)</Link>
+        </Text>
+        , where my passion for pushing boundaries and creating cutting-edge
+        solutions comes to life.
       </Text>
     </Stack>
   )
