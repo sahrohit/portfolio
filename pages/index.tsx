@@ -13,10 +13,10 @@ import Menu from 'components/Menu'
 import Sidebar from 'components/Sidebar'
 import About from 'components/Sections/About'
 import ScrollMore from 'components/Misc/ScrollMore'
+import Experience from 'components/Sections/Experience'
+import FeaturedWorks from 'components/Sections/FeaturedWorks'
 
 // These are on bottom sections so no need to render it instantly
-const Experience = dynamic(() => import('components/Sections/Experience'))
-const FeaturedWorks = dynamic(() => import('components/Sections/FeaturedWorks'))
 const DevToArticles = dynamic(() => import('components/Sections/DevToArticles'))
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
 
