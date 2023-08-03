@@ -76,7 +76,7 @@ const FeaturedWorksSection = () => {
               },
             ]}
             title="HEx Himalaya"
-            src="/works/hex-mock-with-background.png"
+            src="/works/hex-mock-with-background.webp"
             description="Websites for HEx Events, HEx Hackathon and HEx CTF organized by Himalaya College of Engineering."
             height={{ base: '130px', md: '225px', '2xl': '300px' }}
             ctaUrl="https://www.hexhimalaya.com/"
@@ -116,7 +116,7 @@ const FeaturedWorksSection = () => {
             ]}
             title="Hamro Pasal"
             description="Ecommerce platform filled complete with every feature you can imagine."
-            src="/works/hamropasal-mock.png"
+            src="/works/hamropasal-mock.webp"
             height={{ base: '130px', md: '225px', '2xl': '300px' }}
             ctaUrl="https://hamropasal.vercel.app/"
             sourceUrl="https://github.com/sahrohit/fullstack-ecommerce"
@@ -134,7 +134,7 @@ const FeaturedWorksSection = () => {
             ]}
             title="Crystal Chaos"
             description="Game made with Unity where you Fight for your life to obtain the crystal that holds the forbidden power."
-            src="/works/crystal-chaos-mock.png"
+            src="/works/crystal-chaos-mock.webp"
             height={{ base: '130px', md: '225px', '2xl': '300px' }}
             sourceUrl="https://github.com/Team-NPCs/Crystal-Chaos"
             isMobile={isMobile}
