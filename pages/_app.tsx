@@ -6,6 +6,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { AnimatePresence } from 'framer-motion'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import theme from 'config/theme'
 import FavIconProvider from 'components/Misc/FavIconProvider'
 import * as gtag from 'lib/gtag'
@@ -48,6 +49,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
             <Component {...pageProps} />
           </FavIconProvider>
           <Analytics />
+          <SpeedInsights />
         </ChakraProvider>
       </AnimatePresence>
     </>

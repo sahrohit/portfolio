@@ -114,7 +114,7 @@ const ProjectDescription = ({
         alignSelf={isLeft ? 'flex-end' : 'flex-start'}
       />
     </Stack>
-    <HStack w="full" flexWrap="wrap">
+    <HStack w="full" flexWrap="wrap" mt={2}>
       {tags?.map((tag) => (
         <Tag key={tag.label} size="sm" variant="outline">
           <TagLabel>{tag.label}</TagLabel>

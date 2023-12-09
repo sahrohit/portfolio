@@ -115,7 +115,7 @@
 
 // export const ExperiencesList = [Experiences.SCG, Experiences.Blotocol]
 
-export type Company = 'SIS' | 'Aifiverse'
+export type Company = 'SIS' | 'Aifiverse' | 'TC'
 
 export type CompanyDetail = {
   name: string
@@ -134,6 +134,34 @@ export type CompanyDetail = {
 export const Experiences: {
   [key in Company]: CompanyDetail
 } = {
+  TC: {
+    name: 'Tech Central',
+    longName: 'Tech Central',
+    subDetail: '',
+    url: 'https://techcentral.net/',
+    position: 'Frontend Engineering',
+    duration: 'Oct 2023 - Present',
+    logo: {
+      light: '/worked_at_logos/techcentral.webp',
+      dark: '/worked_at_logos/techcentral.webp',
+    },
+    roles: [
+      <>
+        Streamlined workflow using Gulp, enhancing task automation, and boosting
+        overall project efficiency.
+      </>,
+      <>
+        Ensured top-notch web performance by incorporating Lighthouse metrics
+        into development practices, consistently achieving high scores for
+        projects.
+      </>,
+      <>
+        Leveraged CSS preprocessors (e.g., SASS ) to efficiently style the web
+        application using mobile first style, resulting in a consistent and
+        visually appealing user interface.
+      </>,
+    ],
+  },
   Aifiverse: {
     name: 'Aifiverse Tech Services',
     longName: 'Aifiverse Tech Services',
@@ -189,4 +217,8 @@ export const Experiences: {
   },
 }
 
-export const ExperiencesList = [Experiences.Aifiverse, Experiences.SIS]
+export const ExperiencesList = [
+  Experiences.TC,
+  Experiences.Aifiverse,
+  Experiences.SIS,
+]
