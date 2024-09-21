@@ -115,7 +115,7 @@
 
 // export const ExperiencesList = [Experiences.SCG, Experiences.Blotocol]
 
-export type Company = 'SIS' | 'Aifiverse' | 'TC'
+export type Company = 'TECHCENTRAL' | 'TECHNIMUS' | 'SIUE' | 'AMRITA' | 'UNIMI'
 
 export type CompanyDetail = {
   name: string
@@ -134,16 +134,73 @@ export type CompanyDetail = {
 export const Experiences: {
   [key in Company]: CompanyDetail
 } = {
-  TC: {
+  SIUE: {
+    name: 'SIUE',
+    longName: 'Southern Illinois University Edwardsville',
+    subDetail: '',
+    url: 'https://www.siue.edu/',
+    position: 'Graduate Studnet',
+    duration: 'Fall 2024 - Present',
+    logo: {
+      light: '/worked_at_logos/siue.webp',
+      dark: '/worked_at_logos/siue.webp',
+    },
+    roles: [
+      <>
+        Engaged in advanced coursework, gaining in-depth knowledge in areas such
+        as machine learning, artificial intelligence, and data mining.
+      </>,
+      <>
+        Conducted independent research projects, contributing to the academic
+        community with findings in machine learning and data analysis.
+      </>,
+      <>
+        Developed and maintained software applications to support research
+        activities, including a web-based data visualization tool for analyzing
+        large datasets.
+      </>,
+    ],
+  },
+  TECHNIMUS: {
+    name: 'Technimus',
+    longName: 'Technimus',
+    subDetail: '',
+    url: 'https://technimus.com/',
+    position: 'Software Engineer',
+    duration: 'Apr 2024 - Present',
+    logo: {
+      light: '/worked_at_logos/technimus.webp',
+      dark: '/worked_at_logos/technimus.webp',
+    },
+    roles: [
+      <>
+        Troubleshot and debugged complex issues within multi-tenant React and
+        Node applications, achieving high performance and accessible web
+        application following both REST and W3C standards.
+      </>,
+      <>
+        Worked closely with Database Administrators to efficiently store and
+        query data from multi-schema PostgreSQL database ensuring high level of
+        scalability, availability and performance.
+      </>,
+
+      <>
+        Conducted regular meetings with team members to track progress, address
+        challenges, and ensure project alignment with organizational goals.{' '}
+      </>,
+    ],
+  },
+
+  TECHCENTRAL: {
     name: 'Tech Central',
     longName: 'Tech Central',
     subDetail: '',
     url: 'https://techcentral.net/',
     position: 'Frontend Engineering',
-    duration: 'Oct 2023 - Present',
+    duration: 'Oct 2023 - Apr 2024',
     logo: {
-      light: '/worked_at_logos/techcentral.webp',
-      dark: '/worked_at_logos/techcentral.webp',
+      light: '/worked_at_logos/tech-central.webp',
+      dark: '/worked_at_logos/tech-central.webp',
     },
     roles: [
       <>
@@ -162,63 +219,65 @@ export const Experiences: {
       </>,
     ],
   },
-  Aifiverse: {
-    name: 'Aifiverse Tech Services',
-    longName: 'Aifiverse Tech Services',
+  UNIMI: {
+    name: 'UNIMI',
+    longName: 'University of Milan',
     subDetail: '',
-    url: 'https://aifiverse.com',
-    position: 'Frontend Engineer',
-    duration: 'Oct 2022 - Jan 2023',
+    url: 'https://www.unimi.it/',
+    position: 'Research Intern',
+    duration: 'May 2018 - Aug 2019',
     logo: {
-      light: '/worked_at_logos/aifiverse.webp',
-      dark: '/worked_at_logos/aifiverse.webp',
+      light: '/worked_at_logos/unimi.webp',
+      dark: '/worked_at_logos/unimi.webp',
     },
     roles: [
       <>
-        Troubleshot and debugged complex issues within React applications,
-        maintaining a high level of application stability and reliability.
+        Conducted research on deep learning techniques for image recognition and
+        classification, focusing on medical imaging applications.
       </>,
       <>
-        Worked closely with UI/UX designers to translate mockups and wireframes
-        into functional React components, ensuring pixel-perfect implementation.
+        Developed a convolutional neural network (CNN) model using TensorFlow
+        and Keras to classify medical images with high accuracy.
       </>,
       <>
-        Conducted regular meetings with team members to track progress, address
-        challenges, and ensure project alignment with organizational goals.
+        Collaborated with medical professionals to collect and annotate medical
+        image datasets for training and testing the CNN model.
       </>,
     ],
   },
-  SIS: {
-    name: 'Supreme IT Solutions',
-    longName: 'Supreme IT Solutions',
+  AMRITA: {
+    name: 'Amrita',
+    longName: 'Amrita Vishwa Vidyapeetham',
     subDetail: '',
-    url: 'https://www.supremeitsolutions.com/',
-    position: 'Frontend Engineering Intern',
-    duration: 'Aug 2021 - Oct 2021',
+    url: 'https://www.amrita.edu/',
+    position: 'Research Assistant',
+    duration: 'Aug 2019 - May 2021',
     logo: {
-      light: '/worked_at_logos/supremeit.webp',
-      dark: '/worked_at_logos/supremeit.webp',
+      light: '/worked_at_logos/amrita.webp',
+      dark: '/worked_at_logos/amrita.webp',
     },
     roles: [
       <>
-        Developed a dynamic E-Commerce website using Next.js, incorporating
-        modern React components for enhanced user experience and performance.
+        Conducted research on machine learning and natural language processing
+        techniques to develop a chatbot for answering student queries.
       </>,
       <>
-        Successfully integrated API endpoints into the web application, enabling
-        seamless data retrieval and updates for real-time product information.
+        Developed a web-based chatbot using Python, Flask, and React to provide
+        students with instant answers to their questions.
       </>,
       <>
-        Leveraged CSS preprocessors (e.g., SASS, LESS) to efficiently style the
-        web application, resulting in a consistent and visually appealing user
-        interface.
+        Collaborated with faculty members to design and implement machine
+        learning algorithms for analyzing student data and predicting academic
+        performance.
       </>,
     ],
   },
 }
 
 export const ExperiencesList = [
-  Experiences.TC,
-  Experiences.Aifiverse,
-  Experiences.SIS,
+  Experiences.SIUE,
+  Experiences.TECHNIMUS,
+  Experiences.TECHCENTRAL,
+  // Experiences.UNIMI,
+  // Experiences.AMRITA,
 ]

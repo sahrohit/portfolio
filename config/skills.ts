@@ -3,44 +3,32 @@ import { GiKiwiBird } from 'react-icons/gi'
 import { MdLineStyle } from 'react-icons/md'
 import {
   SiAmazonaws,
+  SiApachekafka,
   SiApollographql,
-  SiBootstrap,
-  SiChakraui,
-  SiD3Dotjs,
-  SiDatagrip,
+  SiBem,
   SiDocker,
-  SiExpress,
   SiFirebase,
-  SiFramer,
   SiGit,
   SiGnubash,
   SiGo,
   SiGraphql,
-  SiJavascript,
   SiKeras,
-  SiMaterialdesign,
-  SiMicrosoftazure,
-  SiMongodb,
-  SiMysql,
   SiNextdotjs,
-  SiNginx,
   SiNodedotjs,
+  SiPandas,
   SiPostgresql,
   SiPwa,
   SiReact,
+  SiReactquery,
   SiRedis,
   SiRedux,
   SiScikitlearn,
-  SiStyledcomponents,
   SiTailwindcss,
-  SiTensorflow,
   SiTrpc,
-  SiTypescript,
   SiUnity,
   SiVim,
   SiVisualstudiocode,
 } from 'react-icons/si'
-import { TbBrandMantine } from 'react-icons/tb'
 
 export type SkillCategory =
   | 'backend'
@@ -78,6 +66,14 @@ export const Skills: {
       name: 'Apollo Graphql',
       icon: SiApollographql,
     },
+    {
+      name: 'React Query',
+      icon: SiReactquery,
+    },
+    {
+      name: 'Zustand',
+      icon: MdLineStyle,
+    },
   ],
   backend: [
     {
@@ -88,18 +84,18 @@ export const Skills: {
       name: 'Graphql',
       icon: SiGraphql,
     },
-    {
-      name: 'Express',
-      icon: SiExpress,
-    },
-    {
-      name: 'Javascript (ES6+)',
-      icon: SiJavascript,
-    },
-    {
-      name: 'Typescript',
-      icon: SiTypescript,
-    },
+    // {
+    //   name: 'Express',
+    //   icon: SiExpress,
+    // },
+    // {
+    //   name: 'Javascript (ES6+)',
+    //   icon: SiJavascript,
+    // },
+    // {
+    //   name: 'Typescript',
+    //   icon: SiTypescript,
+    // },
     {
       name: 'TRPC',
       icon: SiTrpc,
@@ -108,15 +104,15 @@ export const Skills: {
       name: 'Go',
       icon: SiGo,
     },
-    {
-      name: 'D3.Js',
-      icon: SiD3Dotjs,
-    },
+    // {
+    //   name: 'D3.Js',
+    //   icon: SiD3Dotjs,
+    // },
   ],
   data: [
     {
-      name: 'Tensorflow',
-      icon: SiTensorflow,
+      name: 'Pandas',
+      icon: SiPandas,
     },
     {
       name: 'Keras',
@@ -140,21 +136,21 @@ export const Skills: {
       name: 'Firebase',
       icon: SiFirebase,
     },
-    {
-      name: 'MongoDb',
-      icon: SiMongodb,
-    },
+    // {
+    //   name: 'MongoDb',
+    //   icon: SiMongodb,
+    // },
     {
       name: 'Redis',
       icon: SiRedis,
     },
+    // {
+    //   name: 'MySQL',
+    //   icon: SiMysql,
+    // },
     {
-      name: 'MySQL',
-      icon: SiMysql,
-    },
-    {
-      name: 'Datagrip',
-      icon: SiDatagrip,
+      name: 'Kafka',
+      icon: SiApachekafka,
     },
   ],
   cicd: [
@@ -166,14 +162,14 @@ export const Skills: {
       name: 'AWS',
       icon: SiAmazonaws,
     },
-    {
-      name: 'Azure',
-      icon: SiMicrosoftazure,
-    },
-    {
-      name: 'NGINX',
-      icon: SiNginx,
-    },
+    // {
+    //   name: 'Azure',
+    //   icon: SiMicrosoftazure,
+    // },
+    // {
+    //   name: 'NGINX',
+    //   icon: SiNginx,
+    // },
   ],
   'ui frameworks': [
     {
@@ -181,33 +177,33 @@ export const Skills: {
       icon: SiTailwindcss,
     },
     {
-      name: 'Mantine',
-      icon: TbBrandMantine,
+      name: 'BEM',
+      icon: SiBem,
     },
-    {
-      name: 'Styled Components',
-      icon: SiStyledcomponents,
-    },
-    {
-      name: 'Bootstrap',
-      icon: SiBootstrap,
-    },
-    {
-      name: 'Framer Motion',
-      icon: SiFramer,
-    },
-    {
-      name: 'ChakraUI',
-      icon: SiChakraui,
-    },
-    {
-      name: 'NativeBase',
-      icon: MdLineStyle,
-    },
-    {
-      name: 'MaterialUI',
-      icon: SiMaterialdesign,
-    },
+    // {
+    //   name: 'Styled Components',
+    //   icon: SiStyledcomponents,
+    // },
+    // {
+    //   name: 'Bootstrap',
+    //   icon: SiBootstrap,
+    // },
+    // {
+    //   name: 'Framer Motion',
+    //   icon: SiFramer,
+    // },
+    // {
+    //   name: 'ChakraUI',
+    //   icon: SiChakraui,
+    // },
+    // {
+    //   name: 'NativeBase',
+    //   icon: MdLineStyle,
+    // },
+    // {
+    //   name: 'MaterialUI',
+    //   icon: SiMaterialdesign,
+    // },
   ],
   'productivity boost': [
     {
@@ -223,7 +219,7 @@ export const Skills: {
       icon: SiVisualstudiocode,
     },
     {
-      name: 'Bash',
+      name: 'Bash (I use Arch BTW)',
       icon: SiGnubash,
     },
   ],

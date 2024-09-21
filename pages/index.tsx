@@ -15,12 +15,13 @@ import About from 'components/Sections/About'
 import ScrollMore from 'components/Misc/ScrollMore'
 import Experience from 'components/Sections/Experience'
 import FeaturedWorks from 'components/Sections/FeaturedWorks'
+import { Article } from 'types/article'
 
 // These are on bottom sections so no need to render it instantly
 const DevToArticles = dynamic(() => import('components/Sections/DevToArticles'))
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
 
-const Portfolio = (): JSX.Element => {
+const Portfolio = ({ articles }: { articles: Article[] }): JSX.Element => {
   const sideBarPadding = useBreakpointValue({ base: '5', md: '8', lg: '14' })
   const mainContent = useBreakpointValue({
     base: '5',
@@ -118,7 +119,7 @@ const Portfolio = (): JSX.Element => {
                 paddingX={0}
                 flexDirection={'row'}
               >
-                <DevToArticles />
+                <DevToArticles articles={articles} />
               </Box>
             </FadeInLayout>
             <FadeInLayout>
@@ -140,14 +141,14 @@ const Portfolio = (): JSX.Element => {
   )
 }
 
-// export async function getStaticProps() {
-//   const res = await fetch('https://dev.to/api/articles?username=klawingco')
-//   const articles = await res.json()
-//   return {
-//     props: {
-//       articles,
-//     },
-//   }
-// }
+export async function getStaticProps() {
+  const res = await fetch('https://dev.to/api/articles?username=sahrohit')
+  const articles = await res.json()
+  return {
+    props: {
+      articles,
+    },
+  }
+}
 
 export default Portfolio

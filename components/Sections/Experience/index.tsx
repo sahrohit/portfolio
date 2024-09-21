@@ -13,9 +13,11 @@ const DetailSection = () => (
         fontVariantCaps: 'small-caps',
       }}
     >
-      Places i’ve worked.
+      Places i&apos;ve been.
     </Heading>
-    <Text variant="description">I am enjoying my life at the moment.</Text>
+    <Text variant="description">
+      I am pursuing my graduate degree at the moment.
+    </Text>
 
     <ExperienceTab />
   </Stack>
