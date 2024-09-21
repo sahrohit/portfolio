@@ -22,7 +22,6 @@ declare global {
 }
 
 const Avatar = () => {
-  const MotionBox = motion.create(Box)
   const imgAvatar = useColorModeValue(
     AvatarImages.LightMode,
     AvatarImages.DarkMode
@@ -39,7 +38,8 @@ const Avatar = () => {
   }, [])
   return (
     <AnimatePresence>
-      <MotionBox
+      <Box
+        as={motion.div}
         id="rohitAvatar"
         boxSize={{ base: 64, lg: 'sm' }}
         padding={{ base: 8 }}
@@ -68,7 +68,7 @@ const Avatar = () => {
             KojiroArt
           </Link>
         </Text>
-      </MotionBox>
+      </Box>
     </AnimatePresence>
   )
 }
