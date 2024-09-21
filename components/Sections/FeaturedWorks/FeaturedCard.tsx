@@ -63,7 +63,7 @@ const variants = {
   },
 }
 
-const MotionImage = motion(Image)
+const MotionImage = motion.create(Image)
 
 const ProjectDescription = ({
   idx,

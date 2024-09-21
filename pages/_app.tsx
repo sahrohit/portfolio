@@ -43,7 +43,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
         `,
         }}
       />
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         <ChakraProvider theme={theme}>
           <FavIconProvider>
             <Component {...pageProps} />

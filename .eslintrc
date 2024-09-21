@@ -5,7 +5,7 @@
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "prettier"
+    "prettier",
   ],
   "plugins": ["@typescript-eslint", "react", "prettier"],
   "rules": {
@@ -32,11 +32,11 @@
       {
         "trailingComma": "es5",
         "singleQuote": true,
-        "endOfLine": "auto"
-      }
-    ]
+        "endOfLine": "auto",
+      },
+    ],
   },
   "globals": {
-    "React": "writable"
-  }
+    "React": "writable",
+  },
 }
