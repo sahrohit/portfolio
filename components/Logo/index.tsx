@@ -9,13 +9,13 @@ import { simpleOpacity } from 'config/animations'
 const Logo = () => {
   const { colorMode } = useColorMode()
   const [isLogoLoaded, setLogoLoaded] = useState(false)
-  const MotionImage = motion.create(Image)
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
   return (
     <AnimatePresence>
       <Link href="/" passHref>
         {colorMode === ThemeMode.Dark ? (
-          <MotionImage
+          <Image
+            as={motion.img}
             className={!isMobile ? styles.logo : ''}
             boxSize={isMobile ? '30px' : '50px'}
             objectFit="cover"
@@ -29,7 +29,8 @@ const Logo = () => {
             zIndex={2}
           />
         ) : (
-          <MotionImage
+          <Image
+            as={motion.img}
             className={!isMobile ? styles.logo : ''}
             boxSize={isMobile ? '30px' : '50px'}
             objectFit="cover"

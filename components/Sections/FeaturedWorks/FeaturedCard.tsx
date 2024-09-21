@@ -63,8 +63,6 @@ const variants = {
   },
 }
 
-const MotionImage = motion.create(Image)
-
 const ProjectDescription = ({
   idx,
   title,
@@ -182,7 +180,8 @@ const FeaturedCard = ({
   const isLeftImage = isMobile ? false : idx % 2 === 0
   const bg = useColorModeValue('blackAlpha.50', 'whiteAlpha.200')
   const CoverImage = () => (
-    <MotionImage
+    <Image
+      as={motion.img}
       height={height}
       width="100%"
       src={src}

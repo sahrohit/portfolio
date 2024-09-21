@@ -27,15 +27,10 @@ const Sidebar = () => {
   const { colorMode } = useColorMode()
   const display = useBreakpointValue({ base: 'none', lg: 'block' })
   const surNameSize = useBreakpointValue({ base: '3xl', md: '4xl' })
-  const MotionHeading = motion.create(Heading)
-  const MotionText = motion.create(Text)
-  const MotionStack = motion.create(Stack)
-  const MotionButton = motion.create(Button)
-  const MotionBox = motion.create(Box)
-  const MotionFlex = motion.create(Flex)
 
   return (
-    <MotionBox
+    <Box
+      as={motion.div}
       initial="initial"
       animate="animate"
       position={{ xl: 'fixed' }}
@@ -58,26 +53,26 @@ const Sidebar = () => {
         display={{ xl: 'flex' }}
         alignItems={{ xl: 'center' }}
       >
-        <MotionStack variants={stagger} spacing={4} w="100">
-          <MotionText
+        <Stack as={motion.div} variants={stagger} spacing={4} w="100">
+          <Text
+            as={motion.p}
             variants={fadeInUp}
-            delay={1}
             variant="accent"
             fontWeight="light"
           >
             I am
-          </MotionText>
-          <MotionHeading
-            as="h1"
+          </Text>
+          <Heading
+            as={motion.h1}
             size="2xl"
             paddingRight={{ lg: '20' }}
             textTransform="uppercase"
             variants={fadeInUp}
           >
             Sah
-          </MotionHeading>
-          <MotionHeading
-            as="h2"
+          </Heading>
+          <Heading
+            as={motion.h2}
             size={surNameSize}
             variant="emphasis"
             className={styles.marginTopForce}
@@ -87,27 +82,27 @@ const Sidebar = () => {
             whileTap={{ scale: 0.9 }}
           >
             Rohit.
-          </MotionHeading>
-          <MotionText
+          </Heading>
+          <Text
+            as={motion.p}
             colorScheme="gray"
             fontSize="smaller"
             className={styles.marginTopForce}
             variants={fadeInUp}
           >
             officially, Rohit Kumar Sah
-          </MotionText>
-
-          <MotionHeading
-            as="h3"
+          </Text>
+          <Heading
+            as={motion.h3}
             size="md"
             variant="emphasis"
             className={styles.marginTopSmall}
             variants={fadeInUp}
           >
             Computer Science Graduate
-          </MotionHeading>
-
-          <MotionText
+          </Heading>
+          <Text
+            as={motion.p}
             variant="descrisption"
             fontSize="small"
             paddingRight={{ lg: '12' }}
@@ -158,8 +153,8 @@ const Sidebar = () => {
                 &nbsp;to make lives easier.
               </Text>
             </Tooltip>
-          </MotionText>
-          <MotionButton
+          </Text>
+          <Button
             size="lg"
             variant="outline"
             borderWidth="1px"
@@ -168,16 +163,16 @@ const Sidebar = () => {
             fontSize="sm"
             width="120px"
             variants={simpleOpacity}
-            as={'a'}
+            as={motion.a}
             href="mailto:sahrohit9586@gmail.com"
             target="_blank"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
             Get in touch!
-          </MotionButton>
+          </Button>
 
-          <MotionFlex variants={simpleOpacity}>
+          <Flex as={motion.div} variants={simpleOpacity}>
             {SocialMedias.map((socMedia) => (
               <Link
                 variant="description"
@@ -192,10 +187,10 @@ const Sidebar = () => {
                 <Icon w={6} h={6} as={socMedia.icon} color="currentColor" />
               </Link>
             ))}
-          </MotionFlex>
-        </MotionStack>
+          </Flex>
+        </Stack>
       </Container>
-    </MotionBox>
+    </Box>
   )
 }
 

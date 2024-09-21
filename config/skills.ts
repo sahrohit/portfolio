@@ -2,7 +2,7 @@ import { IconType } from 'react-icons'
 import { GiKiwiBird } from 'react-icons/gi'
 import { MdLineStyle } from 'react-icons/md'
 import {
-  SiAmazonaws,
+  SiAmazonwebservices,
   SiApachekafka,
   SiApollographql,
   SiBem,
@@ -160,7 +160,7 @@ export const Skills: {
     },
     {
       name: 'AWS',
-      icon: SiAmazonaws,
+      icon: SiAmazonwebservices,
     },
     // {
     //   name: 'Azure',

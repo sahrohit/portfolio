@@ -28,9 +28,6 @@ import FeaturedCard from './FeaturedCard'
 import { fadeInUpSlower, galleryStagger } from 'config/animations'
 import { mobileBreakpointsMap } from 'config/theme'
 
-const MotionGrid = motion.create(Grid)
-const MotionGridItem = motion.create(GridItem)
-
 const featuredWorks = [
   {
     idx: 1,
@@ -129,14 +126,20 @@ const FeaturedWorksSection = () => {
         during my free time out of pure interest and passion.
       </Text>
 
-      <MotionGrid
+      <Grid
+        as={motion.div}
         templateRows="repeat(1, 1fr)"
         templateColumns="repeat(6, 1fr)"
         gap={{ base: 5, md: 6 }}
         variants={galleryStagger}
       >
         {featuredWorks.map((work, index) => (
-          <MotionGridItem key={work.idx} colSpan={6} variants={fadeInUpSlower}>
+          <GridItem
+            as={motion.div}
+            key={work.idx}
+            colSpan={6}
+            variants={fadeInUpSlower}
+          >
             <FeaturedCard
               idx={index + 1}
               tags={work.tags}
@@ -149,9 +152,9 @@ const FeaturedWorksSection = () => {
               objectPosition={work.objectPosition}
               isMobile={isMobile}
             />
-          </MotionGridItem>
+          </GridItem>
         ))}
-      </MotionGrid>
+      </Grid>
       <Text variant="description">
         Discover a treasure trove of my innovative projects on{' '}
         <Text

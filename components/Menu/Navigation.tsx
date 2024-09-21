@@ -16,12 +16,11 @@ import * as gtag from '../../lib/gtag'
 import styles from './styles.module.css'
 import MobileMenu from './toggle'
 import { ThemeMode, mobileBreakpointsMap } from 'config/theme'
-import { easing, menuAnim } from 'config/animations'
+import { menuAnim } from 'config/animations'
 import useScrollDirection, { ScrollDirection } from 'hooks/useScrollDirection'
 
 const Navigation = () => {
   const { toggleColorMode, colorMode } = useColorMode()
-  const MotionContainer = motion.create(Container)
   const [isOpen, toggleOpen] = useCycle(false, true)
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
   const menuButtonSize = useBreakpointValue({
@@ -71,7 +70,7 @@ const Navigation = () => {
         <MobileMenu isDarkMode={IsDark} toggle={toggleOpen} isOpen={isOpen} />
       </Box>
 
-      <MotionContainer
+      <Container
         width="100%"
         backgroundColor={bg}
         maxWidth={{ base: '100%', sm: '100%', lg: '50%', xl: '60%' }}
@@ -89,18 +88,17 @@ const Navigation = () => {
             !isMobile && scrollDirection === ScrollDirection.Down
               ? '12%'
               : '100%',
-          top: !isOpen && isMobile && '-100vh',
-          opacity: !isOpen && isMobile && '0',
-          left: isOpen && isMobile && 0,
+          top: !isOpen && isMobile ? '-100vh' : undefined,
+          opacity: !isOpen && isMobile ? '0' : undefined,
+          left: isOpen && isMobile ? 0 : undefined,
         }}
-        borderColor={isOpen && isMobile && borderColor}
-        borderBottomWidth={isOpen && isMobile && '1px'}
-        paddingBottom={isOpen && isMobile && '1px'}
-        ease={easing}
+        borderColor={isOpen && isMobile ? borderColor : undefined}
+        borderBottomWidth={isOpen && isMobile ? '1px' : undefined}
+        paddingBottom={isOpen && isMobile ? '1px' : undefined}
         variants={menuAnim}
         marginTop={0}
         paddingTop={1}
-        as="nav"
+        as={motion.nav}
       >
         <Flex
           justifyContent={{ base: 'center', lg: 'flex-end' }}
@@ -243,7 +241,7 @@ const Navigation = () => {
             </Box>
           )}
         </Flex>
-      </MotionContainer>
+      </Container>
     </>
   )
 }
