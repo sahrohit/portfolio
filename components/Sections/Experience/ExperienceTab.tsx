@@ -92,7 +92,7 @@ const ExperienceTab = () => {
                 <Text as="span">
                   <Link
                     href={company.url}
-                    aria-label="scentregroup"
+                    aria-label={company.name}
                     rel="noreferrer"
                     target="_blank"
                     fontSize="lg"

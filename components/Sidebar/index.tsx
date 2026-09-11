@@ -99,11 +99,11 @@ const Sidebar = () => {
             className={styles.marginTopSmall}
             variants={fadeInUp}
           >
-            Computer Science Graduate
+            Software Engineer
           </Heading>
           <Text
             as={motion.p}
-            variant="descrisption"
+            variant="description"
             fontSize="small"
             paddingRight={{ lg: '12' }}
             variants={fadeInUp}
@@ -115,7 +115,9 @@ const Sidebar = () => {
               portfolio.
             </Text>
             <br />
-            <br />I am a computer engineer skilled in
+            <br />
+            Software Engineer based in Maryville, IL, pursuing an MS in Computer
+            Science at SIUE. Skilled in
             <Tooltip
               label="can center div in 10 different ways"
               aria-label="CSS Brag"
@@ -124,25 +126,34 @@ const Sidebar = () => {
             >
               <Text variant="emphasis" as="span">
                 {' '}
-                front end designs
+                frontend systems
               </Text>
             </Tooltip>
-            <Text variant="emphasis" as="span">
-              {' '}
-              , backend architecture
-            </Text>
+            ,
             <Tooltip
-              label="can deal with numbers"
+              label="multi-tenant scalability & microservices"
+              aria-label="Backend Brag"
+              placement="top"
+              hasArrow
+            >
+              <Text variant="emphasis" as="span">
+                {' '}
+                backend architecture
+              </Text>
+            </Tooltip>
+            , and
+            <Tooltip
+              label="time-series forecasting & LLMs"
               aria-label="Data Science Brag"
               placement="bottom"
               hasArrow
             >
               <Text variant="emphasis" as="span">
                 {' '}
-                , and data science especially data visualization.
+                machine learning & data science
               </Text>
             </Tooltip>
-            &nbsp;Committed to delivering innovative and seamless solution
+            . Committed to engineering scalable, high-performance solutions
             <Tooltip
               label="well, thats the purpose"
               aria-label="Backend Brag"

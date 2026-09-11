@@ -71,15 +71,14 @@ const SkillList = ({
   )
 }
 const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
-  const backendCols = splitSkills(Skills.backend)
-  const frontendCols = splitSkills(Skills.frontend)
-  const cicdCols = splitSkills(Skills.cicd)
-  const dataBaseCols = splitSkills(Skills.database)
-  const uiFrameWorkCols = splitSkills(Skills['ui frameworks'])
+  const languagesCols = splitSkills(Skills.languages)
+  const webDevCols = splitSkills(Skills['web development'])
+  const databaseCols = splitSkills(Skills.database)
+  const dataCols = splitSkills(Skills['data science'])
+  const cloudCols = splitSkills(Skills['cloud & devops'])
+  const aiCols = splitSkills(Skills['ai integration'])
+  const securityCols = splitSkills(Skills['security & practices'])
   const productivityCols = splitSkills(Skills['productivity boost'])
-  const mobileCols = splitSkills(Skills.mobile)
-  const gameCols = splitSkills(Skills.games)
-  const dataCols = splitSkills(Skills.data)
   return (
     <Modal
       isOpen={isOpen}
@@ -92,15 +91,14 @@ const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
         <ModalHeader>Full Skill Set List</ModalHeader>
         <ModalCloseButton />
         <ModalBody className={styles.skillModal}>
-          <SkillList title="Frontend Centric" columns={frontendCols} />
-          <SkillList title="Backend Centric" columns={backendCols} />
+          <SkillList title="Languages" columns={languagesCols} />
+          <SkillList title="Web Development" columns={webDevCols} />
+          <SkillList title="Cloud & DevOps" columns={cloudCols} />
+          <SkillList title="AI Integration" columns={aiCols} />
+          <SkillList title="Database & Streams" columns={databaseCols} />
           <SkillList title="Data Science" columns={dataCols} />
-          <SkillList title="Database and Streams" columns={dataBaseCols} />
-          <SkillList title="Ui Frameworks" columns={uiFrameWorkCols} />
-          <SkillList title="CICD centric" columns={cicdCols} />
-          <SkillList title="Mobile Development" columns={mobileCols} />
-          <SkillList title="Game Development" columns={gameCols} />
-          <SkillList title="Productivity boosts" columns={productivityCols} />
+          <SkillList title="Security & Practices" columns={securityCols} />
+          <SkillList title="Productivity Boost" columns={productivityCols} />
         </ModalBody>
         <ModalFooter>
           <Text fontSize="x-small">*Some micro frameworks not included </Text>

@@ -115,7 +115,7 @@
 
 // export const ExperiencesList = [Experiences.SCG, Experiences.Blotocol]
 
-export type Company = 'TECHCENTRAL' | 'TECHNIMUS' | 'SIUE' | 'AMRITA' | 'UNIMI'
+export type Company = 'TECHNIMUS' | 'SIUE' | 'TECHCENTRAL'
 
 export type CompanyDetail = {
   name: string
@@ -134,37 +134,10 @@ export type CompanyDetail = {
 export const Experiences: {
   [key in Company]: CompanyDetail
 } = {
-  SIUE: {
-    name: 'SIUE',
-    longName: 'Southern Illinois University Edwardsville',
-    subDetail: '',
-    url: 'https://www.siue.edu/',
-    position: 'Graduate Studnet',
-    duration: 'Fall 2024 - Present',
-    logo: {
-      light: '/worked_at_logos/siue.webp',
-      dark: '/worked_at_logos/siue.webp',
-    },
-    roles: [
-      <>
-        Engaged in advanced coursework, gaining in-depth knowledge in areas such
-        as machine learning, artificial intelligence, and data mining.
-      </>,
-      <>
-        Conducted independent research projects, contributing to the academic
-        community with findings in machine learning and data analysis.
-      </>,
-      <>
-        Developed and maintained software applications to support research
-        activities, including a web-based data visualization tool for analyzing
-        large datasets.
-      </>,
-    ],
-  },
   TECHNIMUS: {
     name: 'Technimus',
-    longName: 'Technimus',
-    subDetail: '',
+    longName: 'Technimus Pvt Ltd.',
+    subDetail: 'Lewes, Delaware',
     url: 'https://technimus.com/',
     position: 'Software Engineer',
     duration: 'Apr 2024 - Present',
@@ -174,29 +147,63 @@ export const Experiences: {
     },
     roles: [
       <>
-        Troubleshot and debugged complex issues within multi-tenant React and
-        Node applications, achieving high performance and accessible web
-        application following both REST and W3C standards.
+        Developed and maintained <b>multi-tenant</b> application for 200+
+        tenants, <b>scaling the platform</b> to serve over 5M+ monthly requests
+        while ensuring accessibility and compliance with REST and W3C standards.
       </>,
       <>
-        Worked closely with Database Administrators to efficiently store and
-        query data from multi-schema PostgreSQL database ensuring high level of
-        scalability, availability and performance.
+        <b>Optimized database schema and queries</b> in{' '}
+        <b>multi-schema PostgreSQL databases</b>, enhancing scalability and
+        reducing query times by 20%, ensuring high availability and data
+        isolation.
       </>,
-
       <>
-        Conducted regular meetings with team members to track progress, address
-        challenges, and ensure project alignment with organizational goals.{' '}
+        Replaced per-request inserts on the activity log with an in-memory
+        write-behind queue (5,000-entry buffer, 50-row flushes every 5s),
+        cutting database round-trips <b>~50x</b>.
+      </>,
+      <>
+        <b>Attended regular meetings</b> with team members and clients to track
+        progress, resolve issues, and ensure feature delivery in alignment with
+        client goals, contributing to a 10% improvement in delivery timelines.
       </>,
     ],
   },
-
+  SIUE: {
+    name: 'SIUE',
+    longName: 'Southern Illinois University Edwardsville',
+    subDetail: 'Edwardsville, Illinois',
+    url: 'https://www.siue.edu/',
+    position: 'Teaching Assistant',
+    duration: 'May 2025 - May 2026',
+    logo: {
+      light: '/worked_at_logos/siue.webp',
+      dark: '/worked_at_logos/siue.webp',
+    },
+    roles: [
+      <>
+        Debugged and reviewed <b>300+ Python and Java assignments</b> per
+        semester, identifying logic errors and giving targeted feedback that
+        improved resubmission pass rates by 20%.
+      </>,
+      <>
+        Reviewed and graded student-designed ER diagrams,{' '}
+        <b>coaching 120+ students</b> on applying database normalization (up to
+        3NF) to fix schema design flaws before implementation.
+      </>,
+      <>
+        Held office hours supporting students in{' '}
+        <b>Excel-based data analysis and visualization</b>, translating raw
+        datasets into statistical summaries for course capstone projects.
+      </>,
+    ],
+  },
   TECHCENTRAL: {
     name: 'Tech Central',
-    longName: 'Tech Central',
-    subDetail: '',
+    longName: 'Tech Central Pvt. Ltd.',
+    subDetail: 'Kathmandu, Nepal',
     url: 'https://techcentral.net/',
-    position: 'Frontend Engineering',
+    position: 'Frontend Engineer',
     duration: 'Oct 2023 - Apr 2024',
     logo: {
       light: '/worked_at_logos/tech-central.webp',
@@ -204,80 +211,87 @@ export const Experiences: {
     },
     roles: [
       <>
-        Streamlined workflow using Gulp, enhancing task automation, and boosting
-        overall project efficiency.
+        Ensured <b>web performance</b> and <b>accessibility</b> by incorporating
+        Lighthouse metrics into development practices, consistently achieving
+        high scores across all projects.
       </>,
       <>
-        Ensured top-notch web performance by incorporating Lighthouse metrics
-        into development practices, consistently achieving high scores for
-        projects.
+        Utilized <b>CSS preprocessors (SASS)</b> with <b>BEM patterns</b> to
+        efficiently style the web application using mobile first style,
+        resulting in a consistent and visually appealing user interface.
       </>,
       <>
-        Leveraged CSS preprocessors (e.g., SASS ) to efficiently style the web
-        application using mobile first style, resulting in a consistent and
-        visually appealing user interface.
-      </>,
-    ],
-  },
-  UNIMI: {
-    name: 'UNIMI',
-    longName: 'University of Milan',
-    subDetail: '',
-    url: 'https://www.unimi.it/',
-    position: 'Research Intern',
-    duration: 'May 2018 - Aug 2019',
-    logo: {
-      light: '/worked_at_logos/unimi.webp',
-      dark: '/worked_at_logos/unimi.webp',
-    },
-    roles: [
-      <>
-        Conducted research on deep learning techniques for image recognition and
-        classification, focusing on medical imaging applications.
-      </>,
-      <>
-        Developed a convolutional neural network (CNN) model using TensorFlow
-        and Keras to classify medical images with high accuracy.
-      </>,
-      <>
-        Collaborated with medical professionals to collect and annotate medical
-        image datasets for training and testing the CNN model.
-      </>,
-    ],
-  },
-  AMRITA: {
-    name: 'Amrita',
-    longName: 'Amrita Vishwa Vidyapeetham',
-    subDetail: '',
-    url: 'https://www.amrita.edu/',
-    position: 'Research Assistant',
-    duration: 'Aug 2019 - May 2021',
-    logo: {
-      light: '/worked_at_logos/amrita.webp',
-      dark: '/worked_at_logos/amrita.webp',
-    },
-    roles: [
-      <>
-        Conducted research on machine learning and natural language processing
-        techniques to develop a chatbot for answering student queries.
-      </>,
-      <>
-        Developed a web-based chatbot using Python, Flask, and React to provide
-        students with instant answers to their questions.
-      </>,
-      <>
-        Collaborated with faculty members to design and implement machine
-        learning algorithms for analyzing student data and predicting academic
-        performance.
+        Streamlined front-end workflows using Gulp to{' '}
+        <b>automate repetitive tasks</b> such as minification and compilation;
+        saved an average of 5 hours weekly on manual processes, allowing focus
+        on feature development.
       </>,
     ],
   },
 }
 
 export const ExperiencesList = [
-  Experiences.SIUE,
   Experiences.TECHNIMUS,
+  Experiences.SIUE,
   Experiences.TECHCENTRAL,
-  // Experiences.UNIMI,
-  // Experiences.AMRITA,
+]
+
+export type EducationItem = {
+  institution: string
+  degree: string
+  duration: string
+  grade: string
+  location: string
+  details?: string
+}
+
+export const EducationList: EducationItem[] = [
+  {
+    institution: 'Southern Illinois University Edwardsville',
+    degree: 'Master of Science in Computer Science (Teaching Assistant)',
+    duration: 'Aug 2024 - May 2026',
+    grade: 'CGPA: 3.893/4.0',
+    location: 'Edwardsville, IL',
+  },
+  {
+    institution: 'Università degli Studi di Milano Statale',
+    degree: 'Foreign Student Exchange Program',
+    duration: 'Feb 2023 - Jul 2023',
+    grade: 'Marks: 27/30',
+    location: 'Milan, Italy',
+  },
+  {
+    institution: 'Amrita School of Engineering',
+    degree: 'Bachelor of Technology Computer Science and Engineering',
+    duration: 'Aug 2019 - Jul 2023',
+    grade: 'CGPA: 8.66/10',
+    location: 'Chennai, India',
+    details: 'Compex Full Scholarship recipient',
+  },
+]
+
+export type ResearchPublication = {
+  title: string
+  authors: string
+  venue: string
+  year: string
+  status?: string
+}
+
+export const ResearchPublicationsList: ResearchPublication[] = [
+  {
+    title: 'Assessing Data-Driven Performance Decline on LLM Fine-tuning',
+    authors: 'Sah Rohit., I Crk.',
+    venue: 'PrePrint',
+    year: '2026',
+    status: 'PrePrint',
+  },
+  {
+    title:
+      'Performance Evaluation of Movie-Based Recommendation Systems using Hybrid Machine Learning Models',
+    authors: 'Sah R., Amrutha G., Manasa, Chapagain B., & Padmavathi A.',
+    venue:
+      'International Conference on IoT Based Control Networks and Intelligent Systems (ICICNIS)',
+    year: '2023',
+  },
 ]

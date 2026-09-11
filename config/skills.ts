@@ -1,45 +1,54 @@
 import { IconType } from 'react-icons'
 import { GiKiwiBird } from 'react-icons/gi'
-import { MdLineStyle } from 'react-icons/md'
+import { MdLineStyle, MdSecurity } from 'react-icons/md'
+import { FaJava, FaRobot, FaBrain } from 'react-icons/fa'
+import { TbDatabase, TbArrowsSplit } from 'react-icons/tb'
 import {
   SiAmazonwebservices,
-  SiApachekafka,
-  SiApollographql,
-  SiBem,
+  SiCloudflare,
+  SiD3Dotjs,
+  SiDigitalocean,
   SiDocker,
+  SiExpress,
   SiFirebase,
   SiGit,
+  SiGithubactions,
   SiGnubash,
   SiGo,
+  SiGoogle,
   SiGraphql,
-  SiKeras,
+  SiHtml5,
+  SiJavascript,
+  SiJsonwebtokens,
+  SiMysql,
   SiNextdotjs,
   SiNodedotjs,
+  SiNumpy,
   SiPandas,
   SiPostgresql,
-  SiPwa,
+  SiPython,
+  SiPytorch,
   SiReact,
-  SiReactquery,
   SiRedis,
-  SiRedux,
   SiScikitlearn,
+  SiSocketdotio,
   SiTailwindcss,
   SiTrpc,
-  SiUnity,
+  SiTypescript,
   SiVim,
   SiVisualstudiocode,
+  SiVite,
 } from 'react-icons/si'
 
 export type SkillCategory =
-  | 'backend'
-  | 'frontend'
-  | 'cicd'
+  | 'languages'
+  | 'web development'
   | 'database'
-  | 'ui frameworks'
+  | 'data science'
+  | 'cloud & devops'
+  | 'ai integration'
+  | 'security & practices'
   | 'productivity boost'
-  | 'mobile'
-  | 'games'
-  | 'data'
 
 export type Skill = {
   name: string
@@ -49,195 +58,70 @@ export type Skill = {
 export const Skills: {
   [key in SkillCategory]: Skill[]
 } = {
-  frontend: [
-    {
-      name: 'React',
-      icon: SiReact,
-    },
-    {
-      name: 'NextJs',
-      icon: SiNextdotjs,
-    },
-    {
-      name: 'Redux',
-      icon: SiRedux,
-    },
-    {
-      name: 'Apollo Graphql',
-      icon: SiApollographql,
-    },
-    {
-      name: 'React Query',
-      icon: SiReactquery,
-    },
-    {
-      name: 'Zustand',
-      icon: MdLineStyle,
-    },
+  languages: [
+    { name: 'TypeScript', icon: SiTypescript },
+    { name: 'Python', icon: SiPython },
+    { name: 'JavaScript', icon: SiJavascript },
+    { name: 'SQL', icon: TbDatabase },
+    { name: 'Java', icon: FaJava },
+    { name: 'Go', icon: SiGo },
+    { name: 'HTML / CSS', icon: SiHtml5 },
   ],
-  backend: [
-    {
-      name: 'Node',
-      icon: SiNodedotjs,
-    },
-    {
-      name: 'Graphql',
-      icon: SiGraphql,
-    },
-    // {
-    //   name: 'Express',
-    //   icon: SiExpress,
-    // },
-    // {
-    //   name: 'Javascript (ES6+)',
-    //   icon: SiJavascript,
-    // },
-    // {
-    //   name: 'Typescript',
-    //   icon: SiTypescript,
-    // },
-    {
-      name: 'TRPC',
-      icon: SiTrpc,
-    },
-    {
-      name: 'Go',
-      icon: SiGo,
-    },
-    // {
-    //   name: 'D3.Js',
-    //   icon: SiD3Dotjs,
-    // },
-  ],
-  data: [
-    {
-      name: 'Pandas',
-      icon: SiPandas,
-    },
-    {
-      name: 'Keras',
-      icon: SiKeras,
-    },
-    {
-      name: 'Scikit-Learn',
-      icon: SiScikitlearn,
-    },
-    {
-      name: 'Weka',
-      icon: GiKiwiBird,
-    },
+  'web development': [
+    { name: 'React.js', icon: SiReact },
+    { name: 'Next.js', icon: SiNextdotjs },
+    { name: 'TypeScript', icon: SiTypescript },
+    { name: 'Node.js', icon: SiNodedotjs },
+    { name: 'Express.js', icon: SiExpress },
+    { name: 'Zustand', icon: MdLineStyle },
+    { name: 'TRPC', icon: SiTrpc },
+    { name: 'Tailwind CSS', icon: SiTailwindcss },
+    { name: 'GraphQL', icon: SiGraphql },
   ],
   database: [
-    {
-      name: 'PostgreSQL',
-      icon: SiPostgresql,
-    },
-    {
-      name: 'Firebase',
-      icon: SiFirebase,
-    },
-    // {
-    //   name: 'MongoDb',
-    //   icon: SiMongodb,
-    // },
-    {
-      name: 'Redis',
-      icon: SiRedis,
-    },
-    // {
-    //   name: 'MySQL',
-    //   icon: SiMysql,
-    // },
-    {
-      name: 'Kafka',
-      icon: SiApachekafka,
-    },
+    { name: 'PostgreSQL', icon: SiPostgresql },
+    { name: 'Firebase', icon: SiFirebase },
+    { name: 'Redis', icon: SiRedis },
+    { name: 'MySQL', icon: SiMysql },
+    { name: 'Drizzle / Kysely', icon: TbDatabase },
+    { name: 'Socket.IO', icon: SiSocketdotio },
   ],
-  cicd: [
-    {
-      name: 'Docker',
-      icon: SiDocker,
-    },
-    {
-      name: 'AWS',
-      icon: SiAmazonwebservices,
-    },
-    // {
-    //   name: 'Azure',
-    //   icon: SiMicrosoftazure,
-    // },
-    // {
-    //   name: 'NGINX',
-    //   icon: SiNginx,
-    // },
+  'data science': [
+    { name: 'PyTorch', icon: SiPytorch },
+    { name: 'Scikit-Learn', icon: SiScikitlearn },
+    { name: 'Pandas', icon: SiPandas },
+    { name: 'NumPy', icon: SiNumpy },
+    { name: 'Weka', icon: GiKiwiBird },
+    { name: 'D3.js', icon: SiD3Dotjs },
+    { name: 'Observable', icon: TbArrowsSplit },
   ],
-  'ui frameworks': [
-    {
-      name: 'Tailwind CSS',
-      icon: SiTailwindcss,
-    },
-    {
-      name: 'BEM',
-      icon: SiBem,
-    },
-    // {
-    //   name: 'Styled Components',
-    //   icon: SiStyledcomponents,
-    // },
-    // {
-    //   name: 'Bootstrap',
-    //   icon: SiBootstrap,
-    // },
-    // {
-    //   name: 'Framer Motion',
-    //   icon: SiFramer,
-    // },
-    // {
-    //   name: 'ChakraUI',
-    //   icon: SiChakraui,
-    // },
-    // {
-    //   name: 'NativeBase',
-    //   icon: MdLineStyle,
-    // },
-    // {
-    //   name: 'MaterialUI',
-    //   icon: SiMaterialdesign,
-    // },
+  'cloud & devops': [
+    { name: 'AWS (S3)', icon: SiAmazonwebservices },
+    { name: 'Docker', icon: SiDocker },
+    { name: 'Cloudflare Workers', icon: SiCloudflare },
+    { name: 'DigitalOcean', icon: SiDigitalocean },
+    { name: 'GitHub Actions', icon: SiGithubactions },
+    { name: 'CI / CD', icon: SiGit },
+  ],
+  'ai integration': [
+    { name: 'Gemini API', icon: SiGoogle },
+    { name: 'MCP Servers', icon: FaRobot },
+    { name: 'Streaming LLM UIs', icon: FaBrain },
+    { name: 'Natural-language-to-SQL', icon: TbDatabase },
+  ],
+  'security & practices': [
+    { name: 'JWT / RBAC', icon: SiJsonwebtokens },
+    { name: 'AES-256 Encryption', icon: MdSecurity },
+    { name: 'Rate Limiting', icon: MdSecurity },
+    { name: 'Pino / Axiom Observability', icon: MdLineStyle },
+    { name: 'Agile Methodology', icon: SiGit },
   ],
   'productivity boost': [
-    {
-      name: 'Git',
-      icon: SiGit,
-    },
-    {
-      name: 'Vim',
-      icon: SiVim,
-    },
-    {
-      name: 'VSCode',
-      icon: SiVisualstudiocode,
-    },
-    {
-      name: 'Bash (I use Arch BTW)',
-      icon: SiGnubash,
-    },
-  ],
-  mobile: [
-    {
-      name: 'React Native',
-      icon: SiReact,
-    },
-    {
-      name: 'PWA',
-      icon: SiPwa,
-    },
-  ],
-  games: [
-    {
-      name: 'Unity3D',
-      icon: SiUnity,
-    },
+    { name: 'Git', icon: SiGit },
+    { name: 'VS Code', icon: SiVisualstudiocode },
+    { name: 'Vim', icon: SiVim },
+    { name: 'Bash', icon: SiGnubash },
+    { name: 'Vite', icon: SiVite },
   ],
 }
 
@@ -247,7 +131,7 @@ export const splitSkills = (srcArray: Skill[]) => {
 
   let chunk = 4
   if (isEvenChunk) {
-    chunk = arrLength / 2
+    chunk = Math.ceil(arrLength / 2)
   } else if (arrLength <= 5 && arrLength > 2) {
     chunk = 3
   }

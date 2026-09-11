@@ -18,10 +18,10 @@ import {
   SiReact,
   SiNextdotjs,
   SiNodedotjs,
-  SiFirebase,
+  SiDocker,
   SiPostgresql,
   SiTrpc,
-  SiApachekafka,
+  SiPython,
   SiGo,
 } from 'react-icons/si'
 import { GiCoffeePot } from 'react-icons/gi'
@@ -112,8 +112,8 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
             Node
           </ListItem>
           <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiApachekafka} color={emphasis} fontSize="2em" />
-            Kafka
+            <ListIcon as={SiPython} color={emphasis} fontSize="2em" />
+            Python
           </ListItem>
         </List>
         <List spacing={3}>
@@ -130,8 +130,8 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
             Postgresql
           </ListItem>
           <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiFirebase} color={emphasis} fontSize="2em" />
-            Firebase
+            <ListIcon as={SiDocker} color={emphasis} fontSize="2em" />
+            Docker
           </ListItem>
           <ListItem fontSize="small" display="flex" alignItems="center">
             <ListIcon as={SiGo} color={emphasis} fontSize="2em" />

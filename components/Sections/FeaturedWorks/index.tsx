@@ -15,10 +15,15 @@ import {
   SiChakraui,
   SiGraphql,
   SiApollographql,
-  SiUnity,
   SiReact,
   SiNextdotjs,
   SiNextra,
+  SiTypescript,
+  SiExpress,
+  SiDocker,
+  SiAmazonwebservices,
+  SiFirebase,
+  SiLeaflet,
 } from 'react-icons/si'
 import { TbBrandNextjs } from 'react-icons/tb'
 import { PiFlagPennantFill } from 'react-icons/pi'
@@ -33,28 +38,31 @@ const featuredWorks = [
     idx: 1,
     tags: [
       { label: 'React', icon: SiReact },
+      { label: 'TypeScript', icon: SiTypescript },
+      { label: 'Express', icon: SiExpress },
       { label: 'Tailwind CSS', icon: SiTailwindcss },
       { label: 'Postgres', icon: SiPostgresql },
     ],
-    title: 'OSOM',
+    title: 'OSOM: Overseas Student Operation Management',
     src: '/works/osom-mockup.webp',
     description:
-      'Multi-tenant Overseas Student Operations Management System serving more than 15 education consultancies across Nepal.',
+      'Comprehensive CRM for education consultancies featuring student management, task tracking, visa scheduling, and a feedback-driven dashboard for real-time progress monitoring, serving 100+ consultancies in Nepal and processing 900,000+ monthly requests.',
     height: { base: '130px', md: '225px', '2xl': '300px' },
-    ctaUrl: 'https://www.osom.global/',
+    ctaUrl: 'https://osom.global',
     objectPosition: 'right 20%',
   },
   {
     idx: 2,
     tags: [
       { label: 'Astro', icon: SiAstro },
-      { label: 'Tailwind CSS', icon: SiTailwindcss },
+      { label: 'Docker', icon: SiDocker },
+      { label: 'AWS', icon: SiAmazonwebservices },
       { label: 'CTFd', icon: PiFlagPennantFill },
     ],
-    title: 'HEx Himalaya',
+    title: 'HEx 2023 Website (Event, Hackathon & CTF)',
     src: '/works/hex-mock-with-background.webp',
     description:
-      'Websites for HEx Events, HEx Hackathon and HEx CTF organized by Himalaya College of Engineering.',
+      'Websites for HEx Himalaya, including hackathon, events list, and CTF sites organized by Himalaya College of Engineering. Scored 100% in Lighthouse in all factors and handled over 25,000 requests in 36 hours.',
     height: { base: '130px', md: '225px', '2xl': '300px' },
     ctaUrl: 'https://www.hexhimalaya.com/',
     sourceUrl: 'https://github.com/sahrohit/hex2023',
@@ -63,20 +71,37 @@ const featuredWorks = [
   {
     idx: 3,
     tags: [
-      { label: 'Postgres', icon: SiPostgresql },
-      { label: 'Next', icon: SiNextdotjs },
-      { label: 'Nextra', icon: SiNextra },
+      { label: 'React', icon: SiReact },
+      { label: 'TypeScript', icon: SiTypescript },
+      { label: 'Firebase', icon: SiFirebase },
+      { label: 'Leaflet', icon: SiLeaflet },
     ],
-    title: 'Pracharya',
+    title: 'DelliDrop: Grocery Delivery Admin Platform',
+    src: '/works/dellidrop-mockup.webp',
     description:
-      'Conquer Your Exam Goals: Share tips, ask questions, and get support from a vibrant community of fellow students preparing for the same exams.',
+      'Grocery delivery admin platform with a time-series forecasting model predicting grocery price trends to boost profit margins by 30%, paired with route optimization on the OSRM Trip API with Haversine fallback serving 300+ customers.',
+    height: { base: '130px', md: '225px', '2xl': '300px' },
+    sourceUrl: 'https://github.com/sahrohit/drop-it',
+    ctaUrl: 'https://drop-it-alpha.vercel.app',
+  },
+  {
+    idx: 4,
+    tags: [
+      { label: 'React', icon: SiReact },
+      { label: 'Next.js', icon: SiNextdotjs },
+      { label: 'Nextra', icon: SiNextra },
+      { label: 'Postgres', icon: SiPostgresql },
+    ],
+    title: 'Pracharya: Mock Test & Notes Platform',
+    description:
+      'Mock test & notes community platform where students share study materials, practice tests, and collaborate to achieve their exam goals.',
     src: '/works/pracharya-mockup.webp',
     height: { base: '130px', md: '225px', '2xl': '300px' },
     ctaUrl: 'https://pracharya.vercel.app',
     sourceUrl: 'https://github.com/sahrohit/pracharya',
   },
   {
-    idx: 4,
+    idx: 5,
     tags: [
       { label: 'NextJs', icon: TbBrandNextjs },
       { label: 'GraphQl', icon: SiGraphql },
@@ -85,23 +110,13 @@ const featuredWorks = [
       { label: 'Redis', icon: SiRedis },
       { label: 'Apollo GraphQl', icon: SiApollographql },
     ],
-    title: 'Hamro Pasal',
+    title: 'Multi-tenant Ecommerce Platform',
     description:
-      'Ecommerce platform filled complete with every feature you can imagine.',
+      'Highly scalable and secured GraphQL API backend with fault tolerance, load balancing, TypeORM, Postgres, and Redis caching for user sessions and rate limiting, coupled with a Next.js storefront.',
     src: '/works/hamropasal-mock.webp',
     height: { base: '130px', md: '225px', '2xl': '300px' },
     ctaUrl: 'https://hamropasal.vercel.app/',
     sourceUrl: 'https://github.com/sahrohit/fullstack-ecommerce',
-  },
-  {
-    idx: 5,
-    tags: [{ label: 'Unity', icon: SiUnity }],
-    title: 'Crystal Chaos',
-    description:
-      'Game made with Unity where you Fight for your life to obtain the crystal that holds the forbidden power.',
-    src: '/works/crystal-chaos-mock.webp',
-    height: { base: '130px', md: '225px', '2xl': '300px' },
-    sourceUrl: 'https://github.com/Team-NPCs/Crystal-Chaos',
   },
 ]
 
