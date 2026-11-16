@@ -1,0 +1,41 @@
+---
+import Mark from '@/components/Mark.astro'
+import SectionHead from '@/components/SectionHead.astro'
+import type { BlogPost } from '@/lib/blogs'
+import { blogDate } from '@/lib/dates'
+
+type Props = { posts: BlogPost[] }
+
+const { posts } = Astro.props
+const speeds = [0.06, -0.08, 0.14]
+---
+
+<section id="blogs" class="sec" aria-labelledby="blogs-title">
+  <SectionHead num="04" title="BLOGS" cmd="~/field-notes" id="blogs-title">
+    <Mark variant="crosshair" left="30%" top="26px" speed={0.7} />
+  </SectionHead>
+  <p class="sec-lede">
+    I write sometimes, but not enough. Will try to write some more in the
+    future.
+  </p>
+  <div class="cols2 blog-grid">
+    {posts.map((p, i) => (
+      <div class="blog-wrap" data-speed={speeds[i % speeds.length]}>
+        <a
+          class="card folder blog-card"
+          href={p.url}
+          target="_blank"
+          rel="noopener"
+        >
+          <time class="mono small-muted" datetime={p.date.toISOString()}>
+            {blogDate(p.date)}
+          </time>
+          <h3>{p.title}</h3>
+          <span class="mono blog-tags">{p.tags}</span>
+          <span class="grow" />
+          <span class="mono blog-foot">blog.sahrohit.com.np ↗</span>
+        </a>
+      </div>
+    ))}
+  </div>
+</section>

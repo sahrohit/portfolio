@@ -1,0 +1,63 @@
+---
+import { profile } from '@/data/profile'
+
+const links = [
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#credentials', label: 'Credentials' },
+  { href: '#contact', label: 'Contact' },
+]
+---
+
+<nav class="topnav" aria-label="Primary">
+  <span class="mono crumb">
+    ~/portfolio <span class="acc">(main)</span>
+  </span>
+  <div class="navlinks">
+    {links.map((l) => (
+      <a class="navlink" href={l.href}>
+        {l.label}
+      </a>
+    ))}
+    <a class="navlink" href={profile.resume} target="_blank" rel="noopener">
+      Resume ↗
+    </a>
+    <button
+      class="btn theme-btn"
+      id="theme-toggle"
+      type="button"
+      aria-label="Toggle color theme"
+    >
+      <svg
+        class="i-sun"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="4.5"></circle>
+        <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+      </svg>
+      <svg
+        class="i-moon"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path>
+      </svg>
+      <span class="lbl-dark">DARK</span>
+      <span class="lbl-light">LIGHT</span>
+    </button>
+  </div>
+</nav>

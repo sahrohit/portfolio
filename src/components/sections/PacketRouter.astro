@@ -1,0 +1,68 @@
+---
+import TechIcon from '@/components/TechIcon.astro'
+import { nodes, edges, initialNode, neighbours } from '@/data/stack'
+
+// Default board size: lines are rendered for it on the server, then the
+// client re-measures and redraws them in real pixels.
+const W = 720
+const H = 420
+const byId = Object.fromEntries(nodes.map((n) => [n.id, n]))
+const near = neighbours(initialNode)
+const active = byId[initialNode]!
+const label = (id: string) => byId[id]!.label
+---
+
+<div class="router" data-router>
+  <div class="router-bar">
+    <strong class="mono">packet-router.live</strong>
+    <span class="mono muted">drag nodes · hover or click to route packets</span>
+  </div>
+  <div class="board" data-board>
+    <svg
+      viewBox={`0 0 ${W} ${H}`}
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <g data-edges>
+        {edges.map(([a, b]) => (
+          <line
+            class={a === initialNode || b === initialNode ? 'edge on' : 'edge'}
+            data-a={a}
+            data-b={b}
+            x1={(byId[a]!.x * W) / 100}
+            y1={(byId[a]!.y * H) / 100}
+            x2={(byId[b]!.x * W) / 100}
+            y2={(byId[b]!.y * H) / 100}
+          />
+        ))}
+      </g>
+      <g data-packets></g>
+    </svg>
+    {nodes.map((n) => (
+      <button
+        type="button"
+        class={`node${n.id === initialNode ? ' on' : near.includes(n.id) ? ' near' : ''}`}
+        style={`left: ${n.x}%; top: ${n.y}%`}
+        data-id={n.id}
+        aria-label={`${n.label}: route packets and show how it is used. Drag to move.`}
+      >
+        <TechIcon name={n.label} size={18} />
+        {n.label}
+      </button>
+    ))}
+  </div>
+  <div class="inspect" aria-live="polite">
+    <span class="k cmd">&gt; inspect</span>
+    <span class="v-label" data-inspect-label>
+      {active.label}
+    </span>
+    <span class="k">in prod</span>
+    <span class="v-use" data-inspect-use>
+      {active.use}
+    </span>
+    <span class="k">routes →</span>
+    <span class="v-links" data-inspect-links>
+      {near.map(label).join(' · ')}
+    </span>
+  </div>
+</div>

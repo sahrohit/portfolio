@@ -1,0 +1,53 @@
+---
+import TechIcon from '@/components/TechIcon.astro'
+import { arsenal } from '@/data/arsenal'
+
+const total = arsenal.reduce((n, c) => n + c.items.length, 0)
+---
+
+<dialog class="arsenal" id="arsenal" aria-labelledby="arsenal-title">
+  <div class="dlg-head mono">
+    <span id="arsenal-title">
+      arsenal --all <span class="muted">({total} tools)</span>
+    </span>
+    <button class="btn sm" type="button" data-close aria-label="Close arsenal">
+      esc ✕
+    </button>
+  </div>
+  <div class="grep">
+    <label class="mono" for="arsenal-q">
+      grep
+    </label>
+    <input
+      id="arsenal-q"
+      type="text"
+      placeholder="kafka, spring, aws…"
+      autocomplete="off"
+      spellcheck="false"
+      autofocus
+    />
+  </div>
+  <div class="cats">
+    {arsenal.map((c) => (
+      <div class="cat" data-cat={c.name.toLowerCase()}>
+        <div class="label">
+          {c.name}{' '}
+          <span class="cat-count">
+            [<span data-count>{c.items.length}</span>]
+          </span>
+        </div>
+        <div class="chips">
+          {c.items.map((it) => (
+            <span class="mono chip" data-item={it.toLowerCase()}>
+              <TechIcon name={it} size={16} />
+              {it}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+    <div class="mono no-match" hidden>
+      grep: no match. (yet.)
+    </div>
+  </div>
+</dialog>

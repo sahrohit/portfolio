@@ -1,0 +1,77 @@
+---
+import { Font } from 'astro:assets'
+import { PUBLIC_GA_TRACKING_ID } from 'astro:env/client'
+import SpeedInsights from '@vercel/speed-insights/astro'
+import Seo from '@/components/Seo.astro'
+import '@/styles/global.css'
+
+type Props = {
+  title?: string
+  description?: string
+  noindex?: boolean
+}
+
+const { title, description, noindex } = Astro.props
+const gaId = PUBLIC_GA_TRACKING_ID ?? ''
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      // Apply the saved (or system) theme before first paint.
+      ;(() => {
+        let t
+        try {
+          t = localStorage.getItem('theme')
+        } catch {}
+        if (t !== 'dark' && t !== 'light') {
+          t = matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light'
+        }
+        document.documentElement.dataset.theme = t
+      })()
+    </script>
+    <Font cssVariable="--font-sans" preload />
+    <Font cssVariable="--font-mono" preload />
+    <Seo title={title} description={description} noindex={noindex} />
+    <link
+      rel="icon"
+      href="/favicon-lightmode.ico"
+      media="(prefers-color-scheme: light)"
+    />
+    <link rel="icon" href="/favicon.ico" media="(prefers-color-scheme: dark)" />
+    <link rel="sitemap" href="/sitemap.xml" />
+    {gaId && <script is:inline define:vars={{ gaId }}>
+      // Google Analytics, injected once the page is loaded and idle so it
+      // never competes with rendering.
+      window.dataLayer = window.dataLayer || []
+      window.gtag = function () {
+        // gtag.js only accepts the real `arguments` object, not an array.
+        // eslint-disable-next-line prefer-rest-params
+        window.dataLayer.push(arguments)
+      }
+      window.gtag('js', new Date())
+      window.gtag('config', gaId)
+      const load = () => {
+        const s = document.createElement('script')
+        s.async = true
+        s.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`
+        document.head.appendChild(s)
+      }
+      const idle = () =>
+        'requestIdleCallback' in window
+          ? requestIdleCallback(load, { timeout: 4000 })
+          : setTimeout(load, 2000)
+      if (document.readyState === 'complete') idle()
+      else addEventListener('load', idle, { once: true })
+    </script>}
+  </head>
+  <body>
+    <slot />
+    <SpeedInsights />
+  </body>
+</html>

@@ -1,21 +1,7 @@
-# Ignore artifacts:
-build
-coverage
-
-# Ignore all HTML files:
+dist
+.astro
+.vercel
+node_modules
+pnpm-lock.yaml
+public
 *.html
-
-**/.git
-**/.svn
-**/.hg
-**/node_modules
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-**/*.d.ts
-**/*.config.js

@@ -1,0 +1,37 @@
+---
+import Kw from '@/components/Kw.astro'
+import Mark from '@/components/Mark.astro'
+import SectionHead from '@/components/SectionHead.astro'
+import PacketRouter from './PacketRouter.astro'
+---
+
+<section id="about" class="sec" aria-labelledby="about-title">
+  <SectionHead num="01" title="WHAT I DO" cmd="svc/about" id="about-title">
+    <Mark variant="crosshair" left="52%" top="18px" speed={0.6} />
+    <Mark variant="dots" left="70%" top="170px" speed={-0.25} />
+    <Mark variant="ring" left="1%" top="250px" speed={0.45} />
+  </SectionHead>
+
+  <div class="cols2 about-copy">
+    <p class="lead">
+      I build <Kw gif="fullstack">full-stack apps</Kw> in Java, Spring Boot,
+      Angular and React for e-commerce, banking and brokerage platforms. For
+      services where <Kw gif="latency">latency matters</Kw>, I write Go instead.
+    </p>
+    <p class="lead">
+      I ship them as <Kw gif="micro">containers</Kw> on AWS with Docker,
+      Kubernetes and Terraform, and connect them with{' '}
+      <Kw gif="pipeline">Kafka topics</Kw>,{' '}
+      <Kw gif="serverless">Lambda workflows</Kw> and <Kw gif="etl">ETL jobs</Kw>
+      .
+    </p>
+  </div>
+
+  <PacketRouter />
+
+  <div class="arsenal-cta">
+    <button class="btn solid" type="button" data-open="arsenal">
+      See my full arsenal ↗
+    </button>
+  </div>
+</section>

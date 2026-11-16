@@ -1,0 +1,114 @@
+---
+import { site, profile, education } from '@/data/profile'
+
+type Props = {
+  title?: string
+  description?: string
+  noindex?: boolean
+}
+
+const {
+  title = site.title,
+  description = site.description,
+  noindex = false,
+} = Astro.props
+
+const canonical = new URL(Astro.url.pathname, site.url).toString()
+const ogImage = new URL(site.ogImage, site.url).toString()
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url: `${site.url}/`,
+  name: title,
+  mainEntity: {
+    '@type': 'Person',
+    '@id': `${site.url}/#person`,
+    name: profile.name,
+    alternateName: ['Rohit Sah', 'Sah Rohit'],
+    jobTitle: profile.role,
+    description,
+    url: `${site.url}/`,
+    image: ogImage,
+    email: `mailto:${profile.email}`,
+    worksFor: {
+      '@type': 'Organization',
+      name: profile.current.company,
+      url: profile.current.url,
+    },
+    alumniOf: education.map((e) => ({
+      '@type': 'CollegeOrUniversity',
+      name: e.school,
+      url: e.url,
+    })),
+    hasCredential: [
+      'Certified Kubernetes Administrator (CKA)',
+      'Databricks Certified Data Engineer Associate',
+    ].map((name) => ({
+      '@type': 'EducationalOccupationalCredential',
+      name,
+    })),
+    knowsAbout: [
+      'Java',
+      'Spring Boot',
+      'Go',
+      'React',
+      'Angular',
+      'Apache Kafka',
+      'AWS',
+      'Kubernetes',
+      'Terraform',
+      'Microservices',
+    ],
+    sameAs: [profile.linkedin, profile.github, profile.blog],
+  },
+}
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta
+  name="robots"
+  content={
+    noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'
+  }
+/>
+<meta name="author" content={profile.name} />
+<meta
+  name="theme-color"
+  content="#ECF1F6"
+  media="(prefers-color-scheme: light)"
+/>
+<meta
+  name="theme-color"
+  content="#0B0F17"
+  media="(prefers-color-scheme: dark)"
+/>
+
+<meta property="og:type" content="profile" />
+<meta property="og:site_name" content={profile.shortName} />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={site.ogImageAlt} />
+<meta property="og:locale" content="en_US" />
+<meta property="profile:first_name" content="Rohit" />
+<meta property="profile:last_name" content="Sah" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={site.ogImageAlt} />
+
+{!noindex && (
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(jsonLd)}
+  />
+)}

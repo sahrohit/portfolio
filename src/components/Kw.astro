@@ -1,0 +1,12 @@
+---
+import { gifSrc, type GifKey } from '@/data/gifs'
+
+/** Underlined keyword that pops a GIF on mouse hover. */
+type Props = { gif: GifKey; as?: 'span' | 'strong' }
+
+const { gif, as: Tag = 'span' } = Astro.props
+---
+
+<Tag class="kw" data-gif={gifSrc(gif)}>
+  <slot />
+</Tag>

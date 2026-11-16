@@ -1,0 +1,135 @@
+---
+import Kw from '@/components/Kw.astro'
+import Mark from '@/components/Mark.astro'
+import SectionHead from '@/components/SectionHead.astro'
+import TechIcon from '@/components/TechIcon.astro'
+import { companies, bars } from '@/data/experience'
+import { companyLogo } from '@/data/logos'
+import { durLabel, monthsBetween } from '@/lib/dates'
+
+const selected = companies[0]!.id
+---
+
+<section id="experience" class="sec" aria-labelledby="experience-title">
+  <SectionHead
+    num="02"
+    title="PLACES I'VE BEEN"
+    cmd="git log --all"
+    id="experience-title"
+  >
+    <Mark variant="ruler" left="38%" top="36px" speed={0.5} />
+    <Mark variant="crosshair" left="94%" top="320px" speed={-0.3} />
+  </SectionHead>
+  <p class="sec-lede">
+    Eight years of Java, Go and React work on commerce, banking and brokerage
+    platforms.
+  </p>
+
+  <div class="tabs" role="tablist" aria-label="Companies" data-tabs>
+    {companies.map((c) => (
+      <button
+        class="tab"
+        type="button"
+        role="tab"
+        id={`tab-${c.id}`}
+        aria-controls={`panel-${c.id}`}
+        aria-selected={c.id === selected ? 'true' : 'false'}
+        tabindex={c.id === selected ? 0 : -1}
+      >
+        <span class="logo co-logo" aria-hidden="true">
+          <img
+            src={companyLogo(c.id)}
+            alt=""
+            width="24"
+            height="24"
+            decoding="async"
+          />
+        </span>
+        <span class="tab-text">
+          <span>{c.name}</span>
+          <span class="tab-years">{c.dates}</span>
+        </span>
+      </button>
+    ))}
+  </div>
+  {companies.map((c) => (
+    <div
+      class="panel"
+      role="tabpanel"
+      id={`panel-${c.id}`}
+      aria-labelledby={`tab-${c.id}`}
+      tabindex="0"
+      hidden={c.id !== selected}
+    >
+      <div class="panel-head">
+        <div class="panel-id">
+          <span class="logo co-logo" aria-hidden="true">
+            <img
+              src={companyLogo(c.id)}
+              alt=""
+              width="44"
+              height="44"
+              loading="lazy"
+              decoding="async"
+            />
+          </span>
+          <div class="minw0">
+            <div class="mono commit">
+              commit <span class="acc">{c.hash}</span> (HEAD →{' '}
+              <span class="ok">{c.tag}</span>)
+            </div>
+            <h3 class="role">
+              {c.role} <span class="at">@ {c.name}</span>
+            </h3>
+            <div class="mono where">
+              {c.loc} · {c.dates} · {durLabel(monthsBetween(c.start, c.end))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rows">
+        {c.rows.map((r, i) => {
+          const [off, w] = bars[i % bars.length]!
+          return (
+            <div class="row play" style={`--d: ${(i * 0.08).toFixed(2)}s`}>
+              <div class="tl" aria-hidden="true" />
+              <div class="trace">
+                <div class="minw0">
+                  <div class="mono svc">{r.svc}</div>
+                  <div class="track" aria-hidden="true">
+                    <div
+                      class="bar play"
+                      style={`left: ${off}%; width: ${Math.min(w, 100 - off)}%; --d: ${(i * 0.08 + 0.15).toFixed(2)}s`}
+                    />
+                  </div>
+                </div>
+                <p>
+                  {r.pre}
+                  {r.gif ? (
+                    <Kw gif={r.gif} as="strong">
+                      {r.bold}
+                    </Kw>
+                  ) : (
+                    <strong>{r.bold}</strong>
+                  )}
+                  {r.post}
+                </p>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+      <div class="stack-foot">
+        <span class="label">STACK</span>
+        <ul class="mono stack-val">
+          {c.stack.split(' · ').map((tech) => (
+            <li>
+              <TechIcon name={tech} size={14} />
+              {tech}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  ))}
+</section>

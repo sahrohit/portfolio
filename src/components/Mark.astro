@@ -1,0 +1,65 @@
+---
+/** Decorative parallax glyph scattered behind a section. */
+type Props = {
+  variant: 'crosshair' | 'dots' | 'ring' | 'ruler'
+  left: string
+  top: string
+  speed: number
+}
+
+const { variant, left, top, speed } = Astro.props
+const dots = [3, 15, 27].flatMap((y) => [3, 15, 27].map((x) => ({ x, y })))
+---
+
+<span
+  class="mark"
+  data-speed={speed}
+  aria-hidden="true"
+  style={`left: ${left}; top: ${top}`}
+>
+  {variant === 'crosshair' && (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 22 22"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.2"
+    >
+      <path d="M11 0V22M0 11H22" />
+      <circle cx="11" cy="11" r="5" />
+    </svg>
+  )}
+  {variant === 'dots' && (
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor">
+      {dots.map((d) => (
+        <circle cx={d.x} cy={d.y} r="1.6" />
+      ))}
+    </svg>
+  )}
+  {variant === 'ring' && (
+    <svg
+      width="46"
+      height="46"
+      viewBox="0 0 46 46"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.2"
+      stroke-dasharray="3 4"
+    >
+      <circle cx="23" cy="23" r="21" />
+    </svg>
+  )}
+  {variant === 'ruler' && (
+    <svg
+      width="140"
+      height="12"
+      viewBox="0 0 140 12"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.2"
+    >
+      <path d="M1 1V11M139 1V11M1 6H139" />
+    </svg>
+  )}
+</span>

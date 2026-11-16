@@ -1,0 +1,84 @@
+---
+import { techLogo } from '@/data/logos'
+
+/** A technology's brand logo on a small tile, or a line glyph for concepts. */
+type Props = {
+  name: string
+  /** Logo size in px; the tile adds 3px of padding on each side. */
+  size?: number
+  /** Load immediately (above the fold) instead of lazily. */
+  eager?: boolean
+}
+
+const { name, size = 16, eager = false } = Astro.props
+const logo = techLogo(name)
+---
+
+<span class="ti" style={`--ti: ${size}px`} aria-hidden="true">
+  {'src' in logo ? (
+    <img
+      src={logo.src}
+      alt=""
+      width={size}
+      height={size}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+    />
+  ) : (
+    <svg
+      class="ti-glyph"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      {logo.glyph === 'db' && (
+        <>
+          <ellipse cx="12" cy="5.5" rx="7.5" ry="2.8" />
+          <path d="M4.5 5.5v13c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-13" />
+          <path d="M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8" />
+        </>
+      )}
+      {logo.glyph === 'api' && (
+        <>
+          <path d="M8 6 2.5 12 8 18" />
+          <path d="m16 6 5.5 6-5.5 6" />
+          <path d="m13.5 4-3 16" />
+        </>
+      )}
+      {logo.glyph === 'nodes' && (
+        <>
+          <rect x="3" y="3" width="7" height="7" />
+          <rect x="14" y="3" width="7" height="7" />
+          <rect x="8.5" y="14" width="7" height="7" />
+          <path d="M6.5 10v2h11v-2M12 12v2" />
+        </>
+      )}
+      {logo.glyph === 'lock' && (
+        <>
+          <rect x="4.5" y="10.5" width="15" height="10.5" />
+          <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+          <path d="M12 14.5v3" />
+        </>
+      )}
+      {logo.glyph === 'pipeline' && (
+        <>
+          <circle cx="5" cy="12" r="2.5" />
+          <circle cx="19" cy="12" r="2.5" />
+          <path d="M7.5 12h9" />
+          <path d="m13.5 9 3 3-3 3" />
+        </>
+      )}
+      {logo.glyph === 'test' && (
+        <>
+          <path d="M9 3h6M10 3v6.5L4.8 18.6A1.6 1.6 0 0 0 6.2 21h11.6a1.6 1.6 0 0 0 1.4-2.4L14 9.5V3" />
+          <path d="M7.5 15h9" />
+        </>
+      )}
+    </svg>
+  )}
+</span>

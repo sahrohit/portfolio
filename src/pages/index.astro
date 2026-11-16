@@ -1,0 +1,63 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Sidebar from '@/components/Sidebar.astro'
+import TopNav from '@/components/TopNav.astro'
+import About from '@/components/sections/About.astro'
+import Experience from '@/components/sections/Experience.astro'
+import Credentials from '@/components/sections/Credentials.astro'
+import Blogs from '@/components/sections/Blogs.astro'
+import Contact from '@/components/sections/Contact.astro'
+import ArsenalDrawer from '@/components/overlays/ArsenalDrawer.astro'
+import PillDialogs from '@/components/overlays/PillDialogs.astro'
+import { getLatestPosts } from '@/lib/blogs'
+
+// Rendered on demand so the blog list follows the RSS feed, then cached at
+// the CDN: visitors get static-speed HTML that refreshes in the background.
+export const prerender = false
+
+const { posts, live } = await getLatestPosts(3)
+
+Astro.cache.set(
+  live
+    ? { maxAge: 3600, swr: 86400, tags: ['home', 'blogs'] }
+    : { maxAge: 300, swr: 3600, tags: ['home', 'blogs'] }
+)
+---
+
+<BaseLayout>
+  <a class="skip" href="#main">
+    Skip to content
+  </a>
+  <div class="matrixbg mono" aria-hidden="true" data-matrix-bg></div>
+
+  <div class="shell">
+    <Sidebar latest={posts[0]} />
+    <div class="right">
+      <TopNav />
+      <main id="main">
+        <About />
+        <Experience />
+        <Credentials />
+        <Blogs posts={posts} />
+        <Contact />
+      </main>
+    </div>
+  </div>
+
+  <button class="btn solid matrix-exit" type="button" data-matrix-exit hidden>
+    EXIT STREAM [esc]
+  </button>
+  <div class="gifpop" aria-hidden="true" hidden data-gifpop>
+    <div class="gifcard">
+      <img alt="" width="280" height="170" decoding="async" />
+    </div>
+  </div>
+  <div role="status" aria-live="polite" data-toast-region></div>
+
+  <ArsenalDrawer />
+  <PillDialogs />
+</BaseLayout>
+
+<script>
+  import '@/scripts/main'
+</script>

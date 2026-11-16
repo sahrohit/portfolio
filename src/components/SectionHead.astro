@@ -1,0 +1,27 @@
+---
+/** Numbered section header with the oversized outline numeral behind it. */
+type Props = {
+  num: string
+  title: string
+  cmd: string
+  id: string
+}
+
+const { num, title, cmd, id } = Astro.props
+---
+
+<span class="ghost" aria-hidden="true">
+  {num}
+</span>
+<slot />
+<div class="sec-head">
+  <span class="mono sec-num" aria-hidden="true">
+    {num}
+  </span>
+  <h2 class="sec-title" id={id}>
+    {title}
+  </h2>
+  <span class="mono sec-cmd" aria-hidden="true">
+    {cmd}
+  </span>
+</div>

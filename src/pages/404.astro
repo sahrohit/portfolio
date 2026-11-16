@@ -1,0 +1,41 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+---
+
+<BaseLayout
+  title="404 — Rohit Sah"
+  description="This page does not exist."
+  noindex
+>
+  <main class="sec notfound">
+    <span class="ghost" aria-hidden="true">
+      404
+    </span>
+    <p class="mono iam">// exit 404</p>
+    <h1 class="sec-title">ROUTE NOT FOUND.</h1>
+    <p class="sec-lede">
+      The packet you sent never reached a node. It probably got dropped
+      somewhere between here and Earth C-137.
+    </p>
+    <p class="notfound-actions">
+      <a class="btn solid" href="/">
+        cd ~/portfolio
+      </a>
+    </p>
+  </main>
+</BaseLayout>
+
+<style>
+  .notfound {
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .notfound-actions {
+    margin: 28px 0 0;
+  }
+</style>

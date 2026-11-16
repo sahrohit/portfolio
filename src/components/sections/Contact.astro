@@ -1,0 +1,51 @@
+---
+import Mark from '@/components/Mark.astro'
+import SectionHead from '@/components/SectionHead.astro'
+import { gifSrc } from '@/data/gifs'
+import { profile } from '@/data/profile'
+---
+
+<section id="contact" class="sec contact" aria-labelledby="contact-title">
+  <SectionHead
+    num="05"
+    title="SAY HI! (⁀ᗢ⁀)"
+    cmd="nc -l 2048"
+    id="contact-title"
+  >
+    <Mark variant="dots" left="82%" top="230px" speed={0.4} />
+    <Mark variant="ruler" left="54%" top="360px" speed={-0.2} />
+  </SectionHead>
+  <div class="contact-body">
+    <p>
+      Well, I vaguely recall myself taking the{' '}
+      <button
+        class="linkish"
+        type="button"
+        data-open="pill"
+        data-gif={gifSrc('pill')}
+        aria-haspopup="dialog"
+      >
+        blue pill
+      </button>
+      . So, whoever designed Earth C-137, really did a great job of designing
+      it. Respecting that, I really enjoy travelling and discovering natural
+      beauties.
+    </p>
+    <p>
+      If you wanna have coffee with me sometime feel free to message me on
+      LinkedIn or shoot me an email.
+    </p>
+    <div class="contact-btns">
+      <a class="btn solid" href={`mailto:${profile.email}`}>
+        {profile.email}
+      </a>
+      <a class="btn" href={profile.linkedin} target="_blank" rel="noopener">
+        LinkedIn ↗
+      </a>
+    </div>
+  </div>
+  <footer class="mono site-foot">
+    <span>© {profile.name} · assembled on Earth C-137</span>
+    <span>{profile.email} · linkedin.com/in/sahrohit2048</span>
+  </footer>
+</section>

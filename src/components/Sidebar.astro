@@ -1,0 +1,158 @@
+---
+import TechIcon from '@/components/TechIcon.astro'
+import { coreStack, profile } from '@/data/profile'
+import type { BlogPost } from '@/lib/blogs'
+import { blogDate, yearsLabel } from '@/lib/dates'
+
+type Props = { latest?: BlogPost }
+
+const { latest } = Astro.props
+---
+
+<header class="left">
+  <div class="left-main">
+    <div class="id-block">
+      <p class="mono iam">// I am</p>
+      <h1 class="hero">
+        SAH
+        <br />
+        ROHIT.
+      </h1>
+      <p class="official">
+        officially, <span>{profile.name}</span>
+      </p>
+      <p class="mono role-chip">{profile.role}</p>
+    </div>
+
+    <div class="status">
+      <span class="pulse status-dot" aria-hidden="true"></span>
+      <div class="status-text">
+        <div>
+          <strong>Currently at Shopify</strong> · US · Remote
+        </div>
+        <div class="muted status-detail">
+          {yearsLabel(profile.careerStart)} · Shopify, SoFi, Fidelity · Java,
+          Spring Boot, React, Go, Kafka, AWS
+        </div>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="lrow">
+        <span class="lkey">EDUCATION</span>
+        <span>
+          M.S. Computer Science, SIUE <span class="mono gpa">(3.893/4.0)</span>
+        </span>
+      </div>
+      <div class={latest ? 'lrow opt-before' : 'lrow last'}>
+        <span class="lkey">CERTS</span>
+        <span>CKA · Databricks Data Engineer Associate</span>
+      </div>
+      {latest && (
+        <div class="lrow last opt-latest">
+          <span class="lkey">LATEST</span>
+          <span>
+            <a href={latest.url} target="_blank" rel="noopener">
+              {latest.title}
+            </a>{' '}
+            <time class="mono gpa" datetime={latest.date.toISOString()}>
+              ({blogDate(latest.date)})
+            </time>
+          </span>
+        </div>
+      )}
+    </div>
+
+    <div class="core opt-core">
+      <div class="lkey">CORE STACK</div>
+      <ul class="core-grid mono">
+        {coreStack.map((tech) => (
+          <li title={tech}>
+            <TechIcon name={tech} size={18} />
+            <span class="core-name">{tech}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="grow"></div>
+
+    <div class="contact-block">
+      <div class="lrow">
+        <span class="lkey">EMAIL</span>
+        <a class="email" href={`mailto:${profile.email}`}>
+          {profile.email}
+        </a>
+      </div>
+      <div class="lrow">
+        <span class="lkey">PHONE</span>
+        <a href={profile.phoneHref}>{profile.phone}</a>
+      </div>
+      <div class="lrow last">
+        <span class="lkey">LINKEDIN</span>
+        <a href={profile.linkedin} target="_blank" rel="noopener">
+          {profile.linkedinLabel}
+        </a>
+      </div>
+      <a
+        class="btn solid resume-btn"
+        href={encodeURI(profile.resume)}
+        target="_blank"
+        rel="noopener"
+      >
+        Download résumé (PDF) ↓
+      </a>
+    </div>
+  </div>
+  <div class="rail">
+    <a class="mono" href={`mailto:${profile.email}`}>
+      {profile.email}
+    </a>
+  </div>
+</header>
+<script is:inline>
+  // The sticky panel is exactly one screen tall and never scrolls. If its
+  // content doesn't fit, drop optional blocks one at a time; as a last resort
+  // let it scroll with the page. Inline so it runs before first paint.
+  ;(() => {
+    const left = document.querySelector('.left')
+    if (!left) {
+      return
+    }
+    const steps = [
+      'core',
+      'core tight',
+      'core tight latest',
+      'core tight latest lean',
+      'core tight latest lean flow',
+    ]
+    const fits = () => left.scrollHeight <= left.clientHeight
+    const fit = () => {
+      delete left.dataset.fit
+      if (matchMedia('(max-width: 900px)').matches) {
+        return
+      }
+      for (const step of steps) {
+        if (fits()) {
+          return
+        }
+        left.dataset.fit = step
+      }
+    }
+    fit()
+    let raf = 0
+    const schedule = () => {
+      cancelAnimationFrame(raf)
+      raf = requestAnimationFrame(fit)
+    }
+    addEventListener('resize', schedule)
+    document.fonts?.ready.then(fit)
+    // Re-fit when a block's own size changes (e.g. matrix mode's mono font).
+    // fit() always lands on the same result for the same layout, so the
+    // size changes it causes settle after one extra pass.
+    const ro = new ResizeObserver(schedule)
+    left
+      .querySelectorAll('.left-main > :not(.grow)')
+      .forEach((el) => ro.observe(el))
+  })()
+</script>
