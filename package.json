@@ -16,8 +16,9 @@
     "fix": "eslint --fix . && prettier --write .",
     "prepare": "husky"
   },
+  "packageManager": "pnpm@12.15.0",
   "engines": {
-    "node": ">=22.23.4"
+    "node": "24.x"
   },
   "dependencies": {
     "@astrojs/vercel": "^11.0.22",
