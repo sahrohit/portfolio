@@ -51,12 +51,6 @@ export const education = [
     degree: 'M.S. Computer Science',
     grade: 'CGPA 3.893 / 4.0',
   },
-  {
-    where: 'Undergraduate',
-    school: 'Amrita School of Engineering',
-    url: 'https://www.amrita.edu',
-    degree: 'B.S. Computer Science',
-  },
 ]
 
 export const certifications = [

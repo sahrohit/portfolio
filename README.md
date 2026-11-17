@@ -48,15 +48,15 @@ pnpm dev               # http://localhost:4321
 
 ## Editing content
 
-| What                           | Where                        |
-| ------------------------------ | ---------------------------- |
-| Name, contact, education       | `src/data/profile.ts`        |
-| Packet-router stack graph      | `src/data/stack.ts`          |
-| Experience                     | `src/data/experience.ts`     |
-| Full arsenal                   | `src/data/arsenal.ts`        |
-| Lab papers (authors, abstract) | `src/data/publications.ts`   |
-| Hover GIFs                     | `src/assets/gifs/<key>.webp` |
-| Résumé                         | `public/Rohit's-Resume.pdf`  |
+| What                                | Where                        |
+| ----------------------------------- | ---------------------------- |
+| Name, contact, education            | `src/data/profile.ts`        |
+| Packet-router stack graph           | `src/data/stack.ts`          |
+| Experience                          | `src/data/experience.ts`     |
+| Full arsenal                        | `src/data/arsenal.ts`        |
+| Research papers (authors, abstract) | `src/data/publications.ts`   |
+| Hover GIFs                          | `src/assets/gifs/<key>.webp` |
+| Résumé                              | `public/Rohit's-Resume.pdf`  |
 
 A paper's "Abstract preview" button only appears once its `abstract` is set.
 
