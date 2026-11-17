@@ -1,8 +1,10 @@
+import { track } from './analytics'
 import { toast } from './toast'
 
 /** "Cite BibTeX" / "Abstract preview" drawers and BibTeX copy. */
 export const initPubs = () => {
   document.querySelectorAll<HTMLElement>('[data-pub]').forEach((pub) => {
+    const paperId = pub.dataset.pub ?? ''
     const toggles = [
       ...pub.querySelectorAll<HTMLButtonElement>('button[aria-controls]'),
     ]
@@ -20,6 +22,13 @@ export const initPubs = () => {
             drawer.hidden = !on
           }
         })
+        const kind = btn.getAttribute('aria-controls')?.startsWith('bib-')
+          ? 'bibtex_toggle'
+          : 'abstract_toggle'
+        track(kind, {
+          paper_id: paperId,
+          state: opening ? 'open' : 'close',
+        })
       })
     )
 
@@ -28,8 +37,10 @@ export const initPubs = () => {
       try {
         await navigator.clipboard.writeText(text)
         toast('BibTeX copied to clipboard.')
+        track('bibtex_copy', { paper_id: paperId, success: 'yes' })
       } catch {
         toast('Clipboard blocked here. Select the text to copy it.')
+        track('bibtex_copy', { paper_id: paperId, success: 'no' })
       }
     })
   })

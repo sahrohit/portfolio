@@ -36,10 +36,24 @@ import { profile } from '@/data/profile'
       LinkedIn or shoot me an email.
     </p>
     <div class="contact-btns">
-      <a class="btn solid" href={`mailto:${profile.email}`}>
+      <a
+        class="btn solid"
+        href={`mailto:${profile.email}`}
+        data-ga="contact_click"
+        data-ga-method="email"
+        data-ga-location="contact"
+      >
         {profile.email}
       </a>
-      <a class="btn" href={profile.linkedin} target="_blank" rel="noopener">
+      <a
+        class="btn"
+        href={profile.linkedin}
+        target="_blank"
+        rel="noopener"
+        data-ga="contact_click"
+        data-ga-method="linkedin"
+        data-ga-location="contact"
+      >
         LinkedIn ↗
       </a>
     </div>

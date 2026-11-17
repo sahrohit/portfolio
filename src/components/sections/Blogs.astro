@@ -26,6 +26,10 @@ const speeds = [0.06, -0.08, 0.14]
           href={p.url}
           target="_blank"
           rel="noopener"
+          data-ga="blog_click"
+          data-ga-title={p.title}
+          data-ga-position={i + 1}
+          data-ga-location="blogs"
         >
           <time class="mono small-muted" datetime={p.date.toISOString()}>
             {blogDate(p.date)}

@@ -1,4 +1,5 @@
 import { nodes, initialNode, neighbours } from '@/data/stack'
+import { track, trackOnce } from './analytics'
 
 const SVG_NS = 'http://www.w3.org/2000/svg'
 const DRAG_THRESHOLD = 6
@@ -163,6 +164,7 @@ export const initRouter = () => {
       justDragged = true
       buttons.get(d.id)?.classList.remove('drag')
       fire(d.id)
+      track('router_node', { node: d.id, action: 'drag' })
       window.setTimeout(() => (justDragged = false), 60)
     }
   }
@@ -177,8 +179,9 @@ export const initRouter = () => {
       }
       activate(id)
       fire(id)
+      track('router_node', { node: id, action: 'click' })
     })
-    const enter = () => {
+    const enter = (e: Event) => {
       if (drag) {
         return
       }
@@ -190,6 +193,9 @@ export const initRouter = () => {
         lastHover = t
         fire(id)
       }
+      // Hovers are frequent: count each node once per page view.
+      const action = e.type === 'focus' ? 'focus' : 'hover'
+      trackOnce(`node:${action}:${id}`, 'router_node', { node: id, action })
     }
     btn.addEventListener('mouseenter', enter)
     btn.addEventListener('focus', enter)

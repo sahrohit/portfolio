@@ -1,12 +1,15 @@
 ---
 import { profile } from '@/data/profile'
 
+// Desktop shows the design's four links; the mobile menu lists every section.
 const links = [
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#credentials', label: 'Credentials' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#about', label: 'About', num: '01', desktop: true },
+  { href: '#experience', label: 'Experience', num: '02', desktop: true },
+  { href: '#credentials', label: 'Credentials', num: '03', desktop: true },
+  { href: '#blogs', label: 'Blogs', num: '04', desktop: false },
+  { href: '#contact', label: 'Contact', num: '05', desktop: true },
 ]
+const section = (href: string) => href.slice(1)
 ---
 
 <nav class="topnav" aria-label="Primary">
@@ -14,12 +17,27 @@ const links = [
     ~/portfolio <span class="acc">(main)</span>
   </span>
   <div class="navlinks">
-    {links.map((l) => (
-      <a class="navlink" href={l.href}>
-        {l.label}
-      </a>
-    ))}
-    <a class="navlink" href={profile.resume} target="_blank" rel="noopener">
+    {links
+      .filter((l) => l.desktop)
+      .map((l) => (
+        <a
+          class="navlink"
+          href={l.href}
+          data-ga="nav_click"
+          data-ga-section={section(l.href)}
+          data-ga-location="topnav"
+        >
+          {l.label}
+        </a>
+      ))}
+    <a
+      class="navlink"
+      href={profile.resume}
+      target="_blank"
+      rel="noopener"
+      data-ga="resume_download"
+      data-ga-location="topnav"
+    >
       Resume ↗
     </a>
     <button
@@ -59,5 +77,51 @@ const links = [
       <span class="lbl-dark">DARK</span>
       <span class="lbl-light">LIGHT</span>
     </button>
+    <button
+      class="btn menu-btn"
+      type="button"
+      popovertarget="mnav"
+      aria-controls="mnav"
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <path d="M4 7h16M4 12h16M4 17h16"></path>
+      </svg>
+      MENU
+    </button>
+  </div>
+
+  <div class="mnav" id="mnav" popover>
+    {links.map((l) => (
+      <a
+        href={l.href}
+        data-ga="nav_click"
+        data-ga-section={section(l.href)}
+        data-ga-location="mobile_menu"
+      >
+        <span class="mnav-num">{l.num}</span>
+        <span>{l.label}</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    ))}
+    <a
+      href={profile.resume}
+      target="_blank"
+      rel="noopener"
+      data-ga="resume_download"
+      data-ga-location="mobile_menu"
+    >
+      <span class="mnav-num"></span>
+      <span>Resume (PDF)</span>
+      <span aria-hidden="true">↗</span>
+    </a>
   </div>
 </nav>

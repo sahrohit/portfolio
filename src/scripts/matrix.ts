@@ -1,3 +1,5 @@
+import { track } from './analytics'
+
 const WORDS = [
   'ACK',
   'offset=',
@@ -40,29 +42,34 @@ const buildStream = (host: HTMLElement) => {
 }
 
 /** Red-pill "stream mode": recolours the page and shows the event stream. */
-export const setMatrix = (on: boolean) => {
+export const setMatrix = (on: boolean, via: 'pill' | 'button' | 'escape') => {
+  const root = document.documentElement
+  if (root.hasAttribute('data-matrix') === on) {
+    return
+  }
   const host = document.querySelector<HTMLElement>('[data-matrix-bg]')
   const exit = document.querySelector<HTMLElement>('[data-matrix-exit]')
   if (on && host && !built) {
     buildStream(host)
     built = true
   }
-  document.documentElement.toggleAttribute('data-matrix', on)
+  root.toggleAttribute('data-matrix', on)
   if (exit) {
     exit.hidden = !on
   }
+  track('matrix_mode', { state: on ? 'on' : 'off', via })
 }
 
 export const initMatrix = () => {
   document
     .querySelector('[data-matrix-exit]')
-    ?.addEventListener('click', () => setMatrix(false))
+    ?.addEventListener('click', () => setMatrix(false, 'button'))
   document.addEventListener('keydown', (e) => {
     if (
       e.key === 'Escape' &&
       document.documentElement.hasAttribute('data-matrix')
     ) {
-      setMatrix(false)
+      setMatrix(false, 'escape')
     }
   })
 }

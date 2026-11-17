@@ -15,9 +15,17 @@ export const initParallax = () => {
     return { el, speed: Number.isNaN(sp) ? DEFAULT_SPEED : sp }
   })
 
+  // On phones the sections sit below the profile, so drifting decorations
+  // would float up over it; parallax is desktop-only.
+  const stacked = matchMedia('(max-width: 900px)')
+
   let raf = 0
   const run = () => {
     raf = 0
+    if (stacked.matches) {
+      items.forEach(({ el }) => (el.style.transform = ''))
+      return
+    }
     const vh = window.innerHeight || 800
     const mid = vh / 2
     // Read every rect first, then write, so layout is flushed once.

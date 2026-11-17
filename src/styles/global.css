@@ -709,6 +709,65 @@ input:focus-visible,
   padding: 0 12px;
 }
 
+/* Mobile menu: hidden on desktop; the panel is a native popover. */
+.menu-btn {
+  display: none;
+  min-height: 40px;
+  padding: 0 12px;
+}
+
+.mnav {
+  position: fixed;
+  inset: var(--bar-h, 56px) 0 auto;
+  width: 100%;
+  max-width: none;
+  max-height: calc(100dvh - var(--bar-h, 56px));
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  background: var(--bg);
+  color: var(--ink);
+  box-shadow: 0 18px 28px -18px rgba(11, 15, 23, 0.45);
+}
+
+.mnav:popover-open {
+  animation: dropin 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.mnav::backdrop {
+  background: rgba(11, 15, 23, 0.35);
+}
+
+.mnav a {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 16px;
+  border-bottom: 1px dashed var(--line);
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.mnav a:last-child {
+  border-bottom: 0;
+}
+
+.mnav a:hover,
+.mnav a:focus-visible {
+  background: var(--chip);
+  color: var(--acc);
+}
+
+.mnav-num {
+  font-size: 12px;
+  color: var(--muted);
+}
+
 .theme-btn .i-sun,
 .theme-btn .lbl-light,
 :root[data-theme='dark'] .theme-btn .i-moon,
@@ -1288,6 +1347,18 @@ h3.label {
 .pub-meta {
   margin-top: 6px;
   font-size: 14px;
+  color: var(--muted);
+}
+
+.pub-meta strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.pub-venue {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.5;
   color: var(--muted);
 }
 
@@ -1883,6 +1954,17 @@ dialog::backdrop {
   }
 }
 
+@keyframes dropin {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
@@ -1895,11 +1977,52 @@ dialog::backdrop {
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   html {
-    scroll-padding-top: 140px;
+    --bar-h: 56px;
+    scroll-padding-top: 64px;
   }
 
+  /* The header becomes a one-row bar pinned to the top of the whole page:
+     .right dissolves so the nav is a direct child of .shell, then moves first. */
   .shell {
     flex-direction: column;
+    overflow-x: clip;
+  }
+
+  .right {
+    display: contents;
+  }
+
+  .topnav {
+    order: -1;
+    height: var(--bar-h);
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .navlinks {
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .navlinks .navlink,
+  .theme-btn .lbl-dark,
+  .theme-btn .lbl-light {
+    display: none !important;
+  }
+
+  .theme-btn {
+    width: 44px;
+    min-height: 40px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .menu-btn {
+    display: inline-flex;
+  }
+
+  .matrix-exit {
+    top: calc(var(--bar-h) + 10px);
   }
 
   .left {
@@ -1928,8 +2051,7 @@ dialog::backdrop {
   }
 
   .topnav {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 0 16px;
   }
 
   .sec {

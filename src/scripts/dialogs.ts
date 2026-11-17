@@ -1,5 +1,10 @@
+import { track } from './analytics'
 import { setMatrix } from './matrix'
 import { toast } from './toast'
+
+type CloseVia = 'button' | 'backdrop' | 'escape' | 'choice'
+
+const SEARCH_DEBOUNCE_MS = 1000
 
 const dialog = (id: string) =>
   document.getElementById(id) as HTMLDialogElement | null
@@ -8,11 +13,30 @@ const open = (id: string) => {
   const d = dialog(id)
   if (d && !d.open) {
     d.showModal()
+    track('dialog_open', { dialog: id })
   }
 }
 
-/** Arsenal drawer, pill chooser and postcard (native <dialog>s). */
+// How each dialog is being closed, read back by its `close` event.
+const closing = new WeakMap<HTMLDialogElement, CloseVia>()
+
+const close = (d: HTMLDialogElement | null, via: CloseVia) => {
+  if (d?.open) {
+    closing.set(d, via)
+    d.close()
+  }
+}
+
+/** Arsenal modal, pill chooser and postcard (native <dialog>s). */
 export const initDialogs = () => {
+  document.querySelectorAll<HTMLDialogElement>('dialog').forEach((d) => {
+    d.addEventListener('cancel', () => closing.set(d, 'escape'))
+    d.addEventListener('close', () => {
+      track('dialog_close', { dialog: d.id, via: closing.get(d) ?? 'escape' })
+      closing.delete(d)
+    })
+  })
+
   document.addEventListener('click', (e) => {
     const target = e.target as Element
     const opener = target.closest<HTMLElement>('[data-open]')
@@ -21,7 +45,7 @@ export const initDialogs = () => {
       return
     }
     if (target.closest('[data-close]')) {
-      target.closest('dialog')?.close()
+      close(target.closest('dialog'), 'button')
       return
     }
     // A click on the dialog element itself, outside its box, is the backdrop.
@@ -29,18 +53,20 @@ export const initDialogs = () => {
       const r = target.getBoundingClientRect()
       const { clientX: x, clientY: y } = e
       if (x < r.left || x > r.right || y < r.top || y > r.bottom) {
-        target.close()
+        close(target, 'backdrop')
       }
     }
   })
 
   document.querySelectorAll<HTMLElement>('[data-pill]').forEach((btn) =>
     btn.addEventListener('click', () => {
-      dialog('pill')?.close()
-      if (btn.dataset.pill === 'blue') {
+      const pill = btn.dataset.pill === 'blue' ? 'blue' : 'red'
+      track('pill_choice', { pill })
+      close(dialog('pill'), 'choice')
+      if (pill === 'blue') {
         open('postcard')
       } else {
-        setMatrix(true)
+        setMatrix(true, 'pill')
         toast('Stream mode on. Every pixel is now an event. Esc to leave.')
       }
     })
@@ -52,16 +78,18 @@ export const initDialogs = () => {
 /** Filter the arsenal chips as you type. */
 const initGrep = () => {
   const input = document.getElementById('arsenal-q') as HTMLInputElement | null
-  const drawer = dialog('arsenal')
-  if (!input || !drawer) {
+  const modal = dialog('arsenal')
+  if (!input || !modal) {
     return
   }
-  const cats = [...drawer.querySelectorAll<HTMLElement>('[data-cat]')]
-  const empty = drawer.querySelector<HTMLElement>('.no-match')
+  const cats = [...modal.querySelectorAll<HTMLElement>('[data-cat]')]
+  const empty = modal.querySelector<HTMLElement>('.no-match')
+  let searchTimer: number | undefined
+  let lastSearch = ''
 
   input.addEventListener('input', () => {
     const q = input.value.trim().toLowerCase()
-    let anyHit = false
+    let results = 0
     cats.forEach((cat) => {
       const catHit = Boolean(q) && (cat.dataset.cat ?? '').includes(q)
       let n = 0
@@ -75,10 +103,19 @@ const initGrep = () => {
       if (count) {
         count.textContent = String(n)
       }
-      anyHit ||= n > 0
+      results += n
     })
     if (empty) {
-      empty.hidden = anyHit
+      empty.hidden = results > 0
     }
+
+    // Report the settled term, not every keystroke (GA4 recommended event).
+    window.clearTimeout(searchTimer)
+    searchTimer = window.setTimeout(() => {
+      if (q && q !== lastSearch) {
+        lastSearch = q
+        track('search', { search_term: q, results })
+      }
+    }, SEARCH_DEBOUNCE_MS)
   })
 }

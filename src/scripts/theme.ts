@@ -1,14 +1,7 @@
-// The initial theme is applied by the inline script in BaseLayout's <head>.
+import { track } from './analytics'
 
-const KEY = 'theme'
-
-const stored = () => {
-  try {
-    return localStorage.getItem(KEY)
-  } catch {
-    return null
-  }
-}
+// The initial theme comes from the OS (inline script in BaseLayout's <head>).
+// The toggle overrides it for this visit only; nothing is saved.
 
 export const initTheme = () => {
   const btn = document.getElementById('theme-toggle')
@@ -16,6 +9,8 @@ export const initTheme = () => {
     return
   }
   const root = document.documentElement
+  let manual = false
+
   const sync = () =>
     btn.setAttribute(
       'aria-label',
@@ -28,17 +23,14 @@ export const initTheme = () => {
   btn.addEventListener('click', () => {
     const next = root.dataset.theme === 'dark' ? 'light' : 'dark'
     root.dataset.theme = next
-    try {
-      localStorage.setItem(KEY, next)
-    } catch {
-      // Storage blocked: the choice still applies for this visit.
-    }
+    manual = true
     sync()
+    track('theme_toggle', { theme: next })
   })
 
-  // Follow the OS setting until the visitor picks a theme themselves.
+  // Follow the OS setting live, unless the visitor picked a theme this visit.
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!stored()) {
+    if (!manual) {
       root.dataset.theme = e.matches ? 'dark' : 'light'
       sync()
     }

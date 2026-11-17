@@ -1,3 +1,5 @@
+import { trackOnce } from './analytics'
+
 /**
  * Hovering a keyword (any element with `data-gif`) pops a GIF card above it,
  * or below when there's no room. Mouse only; GIFs load on first hover.
@@ -34,6 +36,8 @@ export const initKwGif = () => {
       img.src = src
     }
     pop.hidden = false
+    const keyword = (el.textContent ?? '').replace(/\s+/g, ' ').trim()
+    trackOnce(`gif:${keyword}`, 'keyword_gif', { keyword })
   }
 
   document.addEventListener('pointerover', (e) => {

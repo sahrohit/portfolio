@@ -12,7 +12,8 @@ type Props = {
 }
 
 const { title, description, noindex } = Astro.props
-const gaId = PUBLIC_GA_TRACKING_ID ?? ''
+// Production builds only, so local development never reports to GA.
+const gaId = import.meta.env.PROD ? (PUBLIC_GA_TRACKING_ID ?? '') : ''
 ---
 
 <!doctype html>
@@ -20,20 +21,21 @@ const gaId = PUBLIC_GA_TRACKING_ID ?? ''
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
     <script is:inline>
-      // Apply the saved (or system) theme before first paint.
-      ;(() => {
-        let t
-        try {
-          t = localStorage.getItem('theme')
-        } catch {}
-        if (t !== 'dark' && t !== 'light') {
-          t = matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'dark'
-            : 'light'
-        }
-        document.documentElement.dataset.theme = t
-      })()
+      // Every visit starts from the system theme, applied before first paint.
+      // The toggle only overrides it for the current visit.
+      document.documentElement.dataset.theme = matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches
+        ? 'dark'
+        : 'light'
+      // Older builds saved the choice; drop it so it can't linger.
+      try {
+        localStorage.removeItem('theme')
+      } catch {
+        // Storage blocked: nothing saved to remove.
+      }
     </script>
     <Font cssVariable="--font-sans" preload />
     <Font cssVariable="--font-mono" preload />

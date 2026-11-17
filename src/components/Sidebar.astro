@@ -52,7 +52,15 @@ const { latest } = Astro.props
         <div class="lrow last opt-latest">
           <span class="lkey">LATEST</span>
           <span>
-            <a href={latest.url} target="_blank" rel="noopener">
+            <a
+              href={latest.url}
+              target="_blank"
+              rel="noopener"
+              data-ga="blog_click"
+              data-ga-title={latest.title}
+              data-ga-position="1"
+              data-ga-location="sidebar_latest"
+            >
               {latest.title}
             </a>{' '}
             <time class="mono gpa" datetime={latest.date.toISOString()}>
@@ -80,17 +88,37 @@ const { latest } = Astro.props
     <div class="contact-block">
       <div class="lrow">
         <span class="lkey">EMAIL</span>
-        <a class="email" href={`mailto:${profile.email}`}>
+        <a
+          class="email"
+          href={`mailto:${profile.email}`}
+          data-ga="contact_click"
+          data-ga-method="email"
+          data-ga-location="sidebar"
+        >
           {profile.email}
         </a>
       </div>
       <div class="lrow">
         <span class="lkey">PHONE</span>
-        <a href={profile.phoneHref}>{profile.phone}</a>
+        <a
+          href={profile.phoneHref}
+          data-ga="contact_click"
+          data-ga-method="phone"
+          data-ga-location="sidebar"
+        >
+          {profile.phone}
+        </a>
       </div>
       <div class="lrow last">
         <span class="lkey">LINKEDIN</span>
-        <a href={profile.linkedin} target="_blank" rel="noopener">
+        <a
+          href={profile.linkedin}
+          target="_blank"
+          rel="noopener"
+          data-ga="contact_click"
+          data-ga-method="linkedin"
+          data-ga-location="sidebar"
+        >
           {profile.linkedinLabel}
         </a>
       </div>
@@ -99,13 +127,21 @@ const { latest } = Astro.props
         href={encodeURI(profile.resume)}
         target="_blank"
         rel="noopener"
+        data-ga="resume_download"
+        data-ga-location="sidebar"
       >
         Download résumé (PDF) ↓
       </a>
     </div>
   </div>
   <div class="rail">
-    <a class="mono" href={`mailto:${profile.email}`}>
+    <a
+      class="mono"
+      href={`mailto:${profile.email}`}
+      data-ga="contact_click"
+      data-ga-method="email"
+      data-ga-location="rail"
+    >
       {profile.email}
     </a>
   </div>

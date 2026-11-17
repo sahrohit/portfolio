@@ -1,3 +1,5 @@
+import { track } from './analytics'
+
 /** Company tabs in the Experience section (WAI-ARIA tabs pattern). */
 export const initTabs = () => {
   const list = document.querySelector<HTMLElement>('[data-tabs]')
@@ -38,6 +40,10 @@ export const initTabs = () => {
     const tab = (e.target as Element).closest<HTMLButtonElement>('[role="tab"]')
     if (tab) {
       select(tab, false)
+      track('experience_tab', {
+        company: tab.id.replace(/^tab-/, ''),
+        method: 'click',
+      })
     }
   })
 
@@ -57,6 +63,10 @@ export const initTabs = () => {
     if (target) {
       e.preventDefault()
       select(target, true)
+      track('experience_tab', {
+        company: target.id.replace(/^tab-/, ''),
+        method: 'keyboard',
+      })
     }
   })
 }
